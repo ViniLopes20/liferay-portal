@@ -58,6 +58,22 @@ definition {
 		AssertVisible(locator1 = "Home#PAGE_ACTIVE");
 	}
 
+	macro closeSimulation{
+		Click(locator1 = "ControlMenu#CLOSE_SIMULATION");
+	}
+
+	macro openSimulation{
+		Click(locator1 = "ControlMenu#SIMULATION");
+	}
+
+	macro asseertElementHeight{
+		AssertTextEquals(locator1 = "ControlMenu#ASSERT_HEIGHT", value1 = "${height}");
+	}
+
+	macro asseertElementWidth{
+		AssertTextEquals(locator1 = "ControlMenu#ASSERT_WIDTH", value1 = "${width}");
+	}
+
 	macro previewPG {
 		Click(locator1 = "ControlMenu#SIMULATION");
 
