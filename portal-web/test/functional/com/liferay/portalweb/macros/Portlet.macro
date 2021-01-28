@@ -590,4 +590,8 @@ definition {
 		AssertElementNotPresent(locator1 = "//fieldset[@disabled]");
 	}
 
+	macro helloWorld{
+		AssertElementPresent(locator1 = "Panel#HELLO_WORLD");
+	}
+
 }

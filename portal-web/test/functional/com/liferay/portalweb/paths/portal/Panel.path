@@ -39,6 +39,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>HELLO_WORLD</td>
+	<td>//h1[contains(.,'Hello World')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>

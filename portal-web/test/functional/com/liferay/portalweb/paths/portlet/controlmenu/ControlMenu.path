@@ -54,6 +54,21 @@
 	<td></td>
 </tr>
 <tr>
+	<td>CLOSE_SIMULATION</td>
+	<td>//a[@id='fehs____']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ASSERT_HEIGHT</td>
+	<td>//input[@id='_com_liferay_product_navigation_simulation_web_portlet_SimulationPortlet_height']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ASSERT_WIDTH</td>
+	<td>//input[@id='_com_liferay_product_navigation_simulation_web_portlet_SimulationPortlet_width']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>TOGGLE_CONTROLS</td>
 	<td>//*[@data-qa-id='showControls' and contains(.,'Toggle Controls')]//*[name()='svg'][contains(@class,'${key_status}')]</td>
 	<td></td>

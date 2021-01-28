@@ -1,0 +1,175 @@
+@component-name = "app-builder"
+definition {
+    property testray.main.component.name = "App Builder";
+
+    setUp {
+        TestCase.setUpPortalInstance();
+
+        User.firstLoginPG();
+
+        Navigator.openURL();
+    }
+
+    //tearDown {
+        //User.logoutAndLoginPG(
+            //userLoginEmailAddress = "test@liferay.com",
+            //userLoginFullName = "Test Test");
+    //}
+
+    @description = "Access Portal Global Menu and validate CONFIGURATION string at Control Panel"
+    @priority = "5"
+    test ValidateConfigurationStringAtControlPanel {
+		ApplicationsMenuHelper.openApplicationsMenu();
+		ApplicationsMenu.gotoPanel(panel = "Control Panel");
+		AssertElementPresent(locator1 = "//h2[text()='Configuration']");
+    }
+
+    @description = "Set Screen size to custom and validate values"
+    @priority = "5"
+    test SetScreenSizeAndValidateValues {
+        MobileDevice.previewPG(
+            deviceType = "custom",
+            height = "500",
+            width = "500");
+        SelectFrame.selectFrameTop(); //Esse comando serve para fazer um redimencionamento do tamanho da tela; //Pode tbm no lugar de usar esse comando criar uma macro somente colocando o programa para alterar o tamanho e excluir a última linha que é o selectFrame;
+        MobileDevice.closeSimulation();
+        MobileDevice.openSimulation();
+        MobileDevice.asseertElementHeight(height = "500");
+        MobileDevice.asseertElementWidth(width = "500");
+        
+    }
+
+    test Terceiro {
+        ProductMenu.gotoPortlet(category = "Content & Data", portlet = "Web Content");
+        NavItem.gotoStructures();
+        WebContentStructures.addCP(
+			structureDescription = "casa",
+			structureName = "vinicius");
+        
+        DataEngine.addField(fieldName = "Text",fieldFieldLabel = "Name");
+        WebContentStructures.saveCP(structureName = "vinicius");
+
+        WebContentStructures.viewCP(
+			structureDescription = "casa",
+			structureName = "vinicius");
+
+        WebContentNavigator.gotoEditStructure(
+            structureName = "vinicius"
+        );
+
+        var key_fieldFieldLabel = "Name";
+        AssertClick.assertPartialTextClickAt(
+			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
+			value1 = "Name");
+
+        AssertTextEquals.assertValue(
+			locator1 = "Sidebar#DDM_LABEL",
+			value1 = "Name");
+            
+        FormFields.editHelpText(
+			fieldHelpText = "Help Text",
+			fieldName = "tip");
+        WebContentStructures.saveCP(structureName = "vinicius");
+
+        WebContentStructures.deleteCP(structureName = "vinicius");
+        AssertTextEquals(
+            locator1 = "//div[contains(@class, 'sheet-text text-center')]",
+            value1 = "There are no structures."
+        );
+        
+    }
+
+    test Quarto {
+        ProductMenu.gotoPortlet(category = "Content & Data", portlet = "Web Content");
+        NavItem.gotoStructures();
+        WebContentStructures.addCP(
+			structureDescription = "Moradia",
+			structureName = "House");
+        
+        DataEngine.addField(fieldName = "Text",fieldFieldLabel = "Name");
+
+        DataEngine.editFieldTip(
+                fieldFieldLabel = "Name",
+                fieldHelp = "Help");
+            
+        DataEngine.addFields(fieldNameList = "Date");
+        DataEngine.editFieldRequired(fieldFieldLabel = "Date");
+
+        DataEngine.addField(fieldName = "Single Selection",fieldFieldLabel = "Age");
+        
+
+        var index = "1";
+
+			for (var optionValue : list "value 1,value 2,value 3") {
+				DataEngine.addFieldOption(
+					fieldFieldLabel = "Age",
+					index = "${index}",
+					optionValue = "${optionValue}");
+
+				var index = ${index} + 1;
+			}
+
+            DataEngine.addField(fieldName = "Multiple Selection",fieldFieldLabel = "Number");
+            DataEngine.editFieldRepeatable(fieldFieldLabel = "Number");
+
+            var index = "1";
+
+            for (var optionValue : list "value 1,value 2,value 3") {
+				DataEngine.addFieldOption(
+					fieldFieldLabel = "Number",
+					index = "${index}",
+					optionValue = "${optionValue}");
+
+				var index = ${index} + 1;
+			}
+
+            WebContentStructures.addLocalization(
+			locale = "pt_BR",
+			localization1Name = "Casa");
+
+            FormViewBuilder.editFieldLabel(
+			fieldLabel = "Name",
+			label = "Nome");
+
+            DataEngine.editFieldTip(
+                fieldFieldLabel = "Nome",
+                fieldHelp = "Ajuda");
+            
+            FormViewBuilder.editFieldLabel(
+			fieldLabel = "Date",
+			label = "Data");
+
+            FormViewBuilder.editFieldLabel(
+			fieldLabel = "Age",
+			label = "Idade");
+
+            var index = "1";
+
+            for (var optionValue : list "valor 1,valor 2,valor 3") {
+				DataEngine.addFieldOption(
+					fieldFieldLabel = "Idade",
+					index = "${index}",
+					optionValue = "${optionValue}");
+
+				var index = ${index} + 1;
+            }
+
+            FormViewBuilder.editFieldLabel(
+			fieldLabel = "Number",
+			label = "Numero");
+
+            var index = "1";
+
+            for (var optionValue : list "valor 1,valor 2,valor 3") {
+				DataEngine.addFieldOption(
+					fieldFieldLabel = "Numero",
+					index = "${index}",
+					optionValue = "${optionValue}");
+
+				var index = ${index} + 1;
+            }
+            
+            WebContentStructures.saveCP(structureName = "House");
+        
+    }
+}
