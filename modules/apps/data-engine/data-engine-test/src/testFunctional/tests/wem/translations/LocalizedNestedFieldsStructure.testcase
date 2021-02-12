@@ -11,6 +11,10 @@ definition {
 		User.firstLoginPG();
 
 		JSONGroup.addGroup(groupName = "Test Site Name");
+
+		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
+
+		NavItem.gotoStructures();
 	}
 
 	tearDown {
@@ -37,10 +41,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "4"
 	test CheckLanguageSelector {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(
 			structureDescription = "Test",
 			structureName = "Test Structure");
@@ -74,10 +74,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "5"
 	test CheckLocalizationOfStructureUponLanguageChange {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(structureName = "WC Structure Name");
 
 		DataEngine.addField(
@@ -149,10 +145,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "4"
 	test DefaultTitleIsDisplayedUponLocaleChange {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(structureName = "WC Structure Name");
 
 		DataEngine.addField(
@@ -203,10 +195,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "4"
 	test DuplicateTranslatedField {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(structureName = "WC Structure Name");
 
 		DataEngine.addField(
@@ -351,10 +339,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "4"
 	test TranslateStructureWithoutDefaultTitle {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP();
 
 		DataEngine.addField(
@@ -456,10 +440,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "5"
 	test TranslationDoesNotChangeAnother {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(structureName = "WC Structure Name");
 
 		DataEngine.addField(
@@ -562,10 +542,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "5"
 	test TranslationPersistsAfterEditingAnother {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(structureName = "WC Structure Name");
 
 		DataEngine.addField(
@@ -669,10 +645,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "5"
 	test TranslationPersistsForTwoLevelNestedFields {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(structureName = "WC Structure Name");
 
 		DataEngine.addField(
@@ -769,10 +741,6 @@ definition {
 	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
 	@priority = "5"
 	test TranslationsRemainsUponSavingStructure {
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
-
-		NavItem.gotoStructures();
-
 		WebContentStructures.addCP(structureName = "WC Structure Name");
 
 		DataEngine.addField(
