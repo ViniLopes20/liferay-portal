@@ -38,7 +38,7 @@ definition {
 
 	}
 
-	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
+	@description = "This is a test for LPS-123536. Verify if a pop-up with the flag, label, and translation status is shown up when the user clicks on the language flag"
 	@priority = "4"
 	test CheckLanguageSelector {
 		WebContentStructures.addCP(structureName = "WC Structure Name");
@@ -63,7 +63,7 @@ definition {
 			locator1 = "Translation#LOCALIZATION_NAME");
 	}
 
-	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
+	@description = "This is a test for LPS-123536. Check if when the user changes the language, the title remains the default until the user changes it"
 	@priority = "4"
 	test DefaultTitleIsDisplayedUponLocaleChange {
 		WebContentStructures.addCP(structureName = "WC Structure Name");
@@ -113,7 +113,7 @@ definition {
 		// TODO LPS-123536 DefaultTitlePersistsAfterTranslatingForAnotherLocale pending implementation
 	}
 
-	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
+	@description = "This is a test for LPS-123536. The translation should be carried over after duplicating a field"
 	@priority = "4"
 	test DuplicateTranslatedField {
 		WebContentStructures.addCP(structureName = "WC Structure Name");
@@ -257,7 +257,7 @@ definition {
 		// TODO LPS-123536 TranslateStructureWithAllFieldsNested pending implementation
 	}
 
-	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
+	@description = "This is a test for LPS-123536. Translate the structure without adding a title to the default language"
 	@priority = "4"
 	test TranslateStructureWithoutDefaultTitle {
 		WebContentStructures.addCP();
@@ -358,7 +358,7 @@ definition {
 			fieldName = "Numeric");
 	}
 
-	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
+	@description = "This is a test for LPS-123536. Check if a translation doesn't change another one"
 	@priority = "5"
 	test TranslationDoesNotChangeAnother {
 		WebContentStructures.addCP(structureName = "WC Structure Name");
@@ -458,7 +458,7 @@ definition {
 		}
 	}
 
-	@description = "This is a test for LPS-123536. As Content Creator, I want to define reusable translations when creating WEM Structures with nested field"
+	@description = "This is a test for LPS-123536. Check if the translation persist after creating a 2-level nested fields"
 	@priority = "5"
 	test TranslationPersistsForTwoLevelNestedFields {
 		WebContentStructures.addCP(structureName = "WC Structure Name");
