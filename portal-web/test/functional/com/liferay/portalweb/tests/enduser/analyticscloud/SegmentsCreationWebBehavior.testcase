@@ -318,8 +318,8 @@ definition {
 		ACSegments.addSegmentField(segmentField = "Viewed Blog");
 
 		ACSegments.editWebBehaviorCriterion(
-			indexField = "1",
 			activitiesOption = "has not",
+			indexField = "1",
 			occurenceNumber = "5",
 			searchTerm = "Blogs AC Title");
 
