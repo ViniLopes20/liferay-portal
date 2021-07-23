@@ -122,7 +122,7 @@ definition {
 
 		ACTimeFilter.setLast24Hours();
 
-		ACAssets.accessAssets(titleName = "Blogs AC Title");
+		ACNavigation.openItem(itemName = "Blogs AC Title");
 
 		ACAssets.viewVisitorsBehaviorMetric(
 			metricTitle = "Views",
