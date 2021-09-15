@@ -804,8 +804,6 @@ definition {
 	test CanCreateWebBehaviorSegmentUsingHasNot {
 		ACUtils.createBlogsAndAddToPage();
 
-		Navigator.openURL();
-
 		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 
 		JSONUser.addUser(
@@ -848,6 +846,10 @@ definition {
 
 		ACSegments.saveSegment();
 
+		ACNavigation.goToSegments();
+
+		ACSegments.accessSegment(segmentName = "Dynamic Segment Test");
+
 		ACNavigation.switchTab(tabName = "Membership");
 
 		AssertElementPresent(
@@ -862,6 +864,8 @@ definition {
 				siteName = "Site Name");
 
 			BlogsNavigator.gotoPG(entryTitle = "Blogs AC Title");
+
+			Pause(locator1 = "5000");
 		}
 
 		ACUtils.closeAllSessionsAndWait();
