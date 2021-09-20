@@ -696,6 +696,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8482 | Test Summary: Create a nested criteria"
 	@priority = "3"
 	test CanCreateNestedCriteria {
+		property portal.upstream = "vini";
+
 		var usernameList = "userea,user1,test";
 
 		var fullNameList = "userfn userln,Test Test,user1 user1";
