@@ -634,6 +634,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8586 | Test Summary: Sort the Segment 'Add Members' Modal"
 	@priority = "3"
 	test SortSegmentAddMembersModal {
+		property portal.upstream = "vini";
+
 		var users = "ac,liferay,dxp";
 
 		task ("Add a new user in DXP") {
