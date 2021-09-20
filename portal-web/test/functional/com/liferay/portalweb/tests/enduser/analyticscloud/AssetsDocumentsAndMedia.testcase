@@ -130,6 +130,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8402 | Test Summary: Documents audience card shows expected amount of know and anonymous individuals"
 	@priority = "5"
 	test AudienceCardShowsExpectedAmountKnowAndAnonymousIndividualsInDM {
+		property portal.upstream = "vini";
+
 		task ("Connect the DXP to AC") {
 			var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
@@ -195,7 +197,7 @@ definition {
 		}
 
 		task ("Open document by name") {
-			ACNavigation.openItem(itemName = "Document_1.jpg");
+			ACNavigation.openItem(itemName = "fDocument_1.jpg");
 		}
 
 		task ("Assert views by download number of know and anoymous users") {
