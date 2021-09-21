@@ -282,6 +282,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8478 | Test Summary: Create a Dynamic Individuals Segment By Date"
 	@priority = "4"
 	test CanCreateDynamicIndividualsSegmentByDate {
+		property portal.upstream = "vini";
+
 		var fullNameList = "userfn userln,user1 user1";
 
 		task ("Add one more user with a given birth date") {
@@ -392,6 +394,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8481 | Test Summary: Create a Dynamic Individuals Segment with a criteria that uses a boolean and a does not contain"
 	@priority = "4"
 	test CanCreateDynamicSegmentWithIndividualCriteriaUsesBooleanAndDoesNotContain {
+		property portal.upstream = "vini";
+
 		var usernameList = "user1,user2,user3";
 
 		task ("Add three more new users") {
@@ -517,6 +521,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8480 | Test Summary: Create a Dynamic Individuals Segment with a criteria that uses is known and is not"
 	@priority = "4"
 	test CanCreateDynamicSegmentWithIndividualCriteriaUsesIsKnownAndIsNot {
+		property portal.upstream = "vini";
+
 		var usernameList = "user1,user2,user3";
 
 		var membershipList = "user1 user1,user3 user3";
@@ -1020,6 +1026,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8479 | Test Summary: Create a Segment with a Number Property"
 	@priority = "4"
 	test CanCreateSegmentWithNumberProperty {
+		property portal.upstream = "vini";
+
 		var usernameList = "user1,user2,user3";
 
 		var membershipList = "user1 user1,user3 user3";
