@@ -282,6 +282,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8478 | Test Summary: Create a Dynamic Individuals Segment By Date"
 	@priority = "4"
 	test CanCreateDynamicIndividualsSegmentByDate {
+		property portal.upstream = "true";
+
 		var fullNameList = "userfn userln,user1 user1";
 
 		task ("Add one more user with a given birth date") {
