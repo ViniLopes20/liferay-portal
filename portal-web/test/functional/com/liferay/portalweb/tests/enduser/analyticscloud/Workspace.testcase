@@ -95,6 +95,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9147 | Test Summary: Set the timezone in workspace settings"
 	@priority = "5"
 	test SetTimeZoneInExistingWorkspace {
+		property portal.upstream = "vini";
+
 		task ("Navigate to Workspace Settings") {
 			ACNavigation.goToSettings();
 
