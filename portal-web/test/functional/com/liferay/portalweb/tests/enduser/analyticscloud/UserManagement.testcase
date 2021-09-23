@@ -355,6 +355,8 @@ definition {
 	@description = "Automation ID: LRAC-9076 | Test Summary: The logged in user accesses directly an inexistent workspace"
 	@priority = "3"
 	test LoggedUserAcessesDirectlyInexistentWorkspace {
+		property portal.upstream = "vini";
+
 		task ("Change URL to a workspace that doesn't exist") {
 			var workspaceURL = Navigator.getCurrentURL();
 
