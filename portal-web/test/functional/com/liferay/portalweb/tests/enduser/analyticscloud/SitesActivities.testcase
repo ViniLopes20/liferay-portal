@@ -350,6 +350,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8279 | Test Summary: Site Activity Card: Can hover over a point on the graph to get detailed stats"
 	@priority = "5"
 	test CanHoverOverPointOnGraphGetStats {
+		property portal.upstream = "vini";
+
 		task ("Connect Analytics Cloud to DXP") {
 			var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
