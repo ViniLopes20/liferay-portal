@@ -563,6 +563,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9026 | Test Summary: Search for an Individual in the individual List"
 	@priority = "4"
 	test SearchIndividualList {
+		property portal.upstream = "vini";
+
 		var usernameList = "randy.smith,maria.rau";
 
 		task ("Get site assigned property name") {
