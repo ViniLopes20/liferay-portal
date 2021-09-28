@@ -28,6 +28,8 @@ definition {
 		}
 		else {
 			JSONGroup.deleteGroupByName(groupName = "Site Name");
+
+			JSONUser.tearDownNonAdminUsers();
 		}
 
 		ACUtils.tearDownAC();
@@ -1154,16 +1156,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9224 | Test Summary: Create a Web Behavior Segment of Viewing Document & Media in a Topic"
 	@priority = "4"
 	test CanCreateWebBehaviorSegmentViewingDM {
-		property portal.upstream = "quarantine";
-
-		// AC Refactor: Issues with segment members may happen on this test case
-		// AC Refactor ticket: LRAC-9404
-		// AC Fix ticket: LRAC-9285
-		// AC Bug ticket : LRAC-9412
-
 		ACUtils.createDMAndAddToPage();
-
-		Navigator.openURL();
 
 		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 
@@ -1200,7 +1193,7 @@ definition {
 		ACSegments.addSegmentField(segmentField = "Viewed Document & Media");
 
 		ACSegments.selectDocument(
-			documentTitle = "Document_1.jpg",
+			documentTitle = "DM AC Title",
 			indexField = "1");
 
 		ACSegments.setOccurence(occurenceNumber = "4");
@@ -1225,9 +1218,9 @@ definition {
 				siteName = "Site Name");
 
 			DMNavigator.gotoDocumentPG(dmDocumentTitle = "DM AC Title");
-		}
 
-		Pause(locator1 = "10000");
+			Pause(locator1 = "5000");
+		}
 
 		ACUtils.closeAllSessionsAndWait();
 
@@ -1238,8 +1231,6 @@ definition {
 		ACSegments.accessSegment(segmentName = "Dynamic Segment Test");
 
 		ACNavigation.switchTab(tabName = "Membership");
-
-		// Couldn't assert the user due to missing data.
 
 		ACUtils.viewNameList(nameList = "ac ac");
 	}
