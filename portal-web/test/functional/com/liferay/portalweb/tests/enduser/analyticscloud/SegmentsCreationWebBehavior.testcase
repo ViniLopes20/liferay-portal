@@ -297,9 +297,9 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9222 | Test Summary: Create a Web Behavior since X days"
 	@priority = "4"
 	test CanCreateWebBehaviorSegmentSinceXdays {
-		ACUtils.createWCAndAddToPage();
+		property portal.upstream = "vini";
 
-		Navigator.openURL();
+		ACUtils.createWCAndAddToPage();
 
 		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 
@@ -338,7 +338,7 @@ definition {
 			occurenceNumber = "4",
 			searchTerm = "Web Content AC Title",
 			timeOption = "since",
-			timePeriod = "last 7 days");
+			timePeriod = "Last 7 days");
 
 		ACSegments.saveSegment();
 
@@ -350,10 +350,12 @@ definition {
 
 		ACUtils.launchDXP(userEmailAddress = "ac@liferay.com");
 
-		for (var n : list "1,2,3") {
+		for (var n : list "1,2,3,4") {
 			Navigator.gotoSitePage(
 				pageName = "AC Page",
 				siteName = "Site Name");
+
+			Pause(locator1 = "5000");
 		}
 
 		ACUtils.closeAllSessionsAndWait();
@@ -366,9 +368,7 @@ definition {
 
 		ACNavigation.switchTab(tabName = "Membership");
 
-		AssertElementPresent(
-			key_userName = "ac ac",
-			locator1 = "ACSegments#SEGMENT_MEMBERS");
+		ACUtils.viewNameList(nameList = "ac ac");
 	}
 
 	@description = "Create a Web Behavior Segment Submitting a Form"
