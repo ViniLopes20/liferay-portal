@@ -64,12 +64,22 @@ definition {
 			ACSegments.nameSegment(segmentName = "New Segment Test");
 		}
 
-		task ("Add a birthDate field") {
+		task ("Add a birthDate and createDate field") {
 			ACSegments.goToSidebarAttributes(criterion = "Individual Attributes");
 
-			ACSegments.addSegmentField(segmentField = "birthDate");
+			for (var criteriaName : list "birthDate,createDate") {
+				ACSegments.addSegmentField(segmentField = "${criteriaName}");
+			}
 
 			ACSegments.saveSegment();
+		}
+
+		task ("View the segment criteria") {
+			ACSegments.viewSegmentCriteriaIndividualAttributes(attributeName = "birthDate");
+
+			ACSegments.viewSegmentCriteriaIndividualAttributes(
+				attributeName = "createDate",
+				index = "2");
 		}
 
 		task ("Go to Segment and edit it") {
@@ -80,10 +90,16 @@ definition {
 
 		task ("Delete the criteria") {
 			ACSegments.deleteSegmentCriteria(criteriaName = "birthDate");
+
+			ACSegments.saveSegment();
 		}
 
-		task ("View the deleted criteria") {
-			ACSegments.viewDeletedCriteria();
+		task ("View the segment criteria") {
+			ACSegments.viewSegmentCriteriaIndividualAttributes(attributeName = "createDate");
+
+			AssertTextNotEquals(
+				locator1 = "ACSegments#SEGMENT_CRITERIA_CARD",
+				value1 = "birthDate");
 		}
 	}
 
