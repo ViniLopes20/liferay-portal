@@ -77,6 +77,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SEGMENT_CRITERIA_CARD</td>
+	<td>//div[contains(@class,"criteria-card-root")]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CRITERIA_ROW</td>
 	<td>//div[contains(@class,'criteria-row')][contains(.,'${key_CriteriaName}')]</td>
 	<td></td>
