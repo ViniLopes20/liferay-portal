@@ -117,6 +117,8 @@ definition {
 	@description = "Automation ID: LRAC-9094 | Test Summary: Admin can remove data sources"
 	@priority = "3"
 	test AdminCanRemoveDataSources {
+		property portal.upstream = "vini";
+
 		task ("Logout AC and login as an admin user") {
 			ACWorkspace.signOut();
 
