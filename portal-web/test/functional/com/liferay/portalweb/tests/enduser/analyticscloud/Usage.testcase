@@ -358,6 +358,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9181 | Test Summary: Bar graph and percentage of page views displays percentage of plan used."
 	@priority = "3"
 	test PageViewsCardShowOverviewUsageOfPlan {
+		property portal.upstream = "vini";
+
 		task ("Sign in AC") {
 			ACUtils.launchAC();
 		}
