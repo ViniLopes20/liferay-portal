@@ -1156,6 +1156,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9224 | Test Summary: Create a Web Behavior Segment of Viewing Document & Media in a Topic"
 	@priority = "4"
 	test CanCreateWebBehaviorSegmentViewingDM {
+		property portal.upstream = "vini";
+
 		var username = "ac";
 
 		ACUtils.createDMAndAddToPage();
@@ -1174,11 +1176,15 @@ definition {
 			userLoginEmailAddress = "${username}@liferay.com",
 			userLoginFullName = "${username} ${username}");
 
-		Navigator.gotoSitePage(
-			pageName = "AC Page",
-			siteName = "Site Name");
+		for (var n : list "1,2,3") {
+			Navigator.gotoSitePage(
+				pageName = "AC Page",
+				siteName = "Site Name");
 
-		DMNavigator.gotoDocumentPG(dmDocumentTitle = "DM AC Title");
+			DMNavigator.gotoDocumentPG(dmDocumentTitle = "DM AC Title");
+
+			Pause(locator1 = "5000");
+		}
 
 		ACUtils.closeAllSessionsAndWait();
 
@@ -1198,15 +1204,13 @@ definition {
 			documentTitle = "DM AC Title",
 			indexField = "1");
 
-		ACSegments.setOccurence(occurenceNumber = "4");
+		ACSegments.setOccurence(occurenceNumber = "6");
 
 		ACSegments.saveSegment();
 
 		ACNavigation.switchTab(tabName = "Membership");
 
-		AssertTextEquals(
-			locator1 = "ACSegments#NO_MEMBER_TITLE",
-			value1 = "There are no items found.");
+		ACUtils.viewNoResultsMessage(noResultMessage = "There are no items found.");
 
 		ACUtils.launchDXP(userEmailAddress = "${username}@liferay.com");
 
@@ -1214,7 +1218,7 @@ definition {
 			pageName = "AC Page",
 			siteName = "Site Name");
 
-		for (var n : list "1,2,3") {
+		for (var n : list "1,2,3,4") {
 			Navigator.gotoSitePage(
 				pageName = "AC Page",
 				siteName = "Site Name");
