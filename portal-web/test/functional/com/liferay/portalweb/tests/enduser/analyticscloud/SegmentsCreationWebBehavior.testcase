@@ -466,8 +466,6 @@ definition {
 	test CanCreateWebBehaviorSegmentUsingAfter {
 		ACUtils.createWCAndAddToPage();
 
-		Navigator.openURL();
-
 		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 
 		JSONUser.addUser(
@@ -482,9 +480,13 @@ definition {
 			userLoginEmailAddress = "ac@liferay.com",
 			userLoginFullName = "ac ac");
 
-		Navigator.gotoSitePage(
-			pageName = "AC Page",
-			siteName = "Site Name");
+		for (var n : list "1,2") {
+			Navigator.gotoSitePage(
+				pageName = "AC Page",
+				siteName = "Site Name");
+
+			Pause(locator1 = "5000");
+		}
 
 		ACUtils.closeAllSessionsAndWait();
 
@@ -515,9 +517,7 @@ definition {
 
 		ACNavigation.switchTab(tabName = "Membership");
 
-		AssertTextEquals(
-			locator1 = "ACSegments#NO_MEMBER_TITLE",
-			value1 = "There are no items found.");
+		ACUtils.viewNoResultsMessage(noResultMessage = "There are no items found.");
 
 		ACUtils.launchDXP(userEmailAddress = "ac@liferay.com");
 
@@ -537,9 +537,7 @@ definition {
 
 		ACNavigation.switchTab(tabName = "Membership");
 
-		AssertElementPresent(
-			key_userName = "ac ac",
-			locator1 = "ACSegments#SEGMENT_MEMBERS");
+		ACUtils.viewNameList(nameList = "ac ac");
 	}
 
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9217 | Test Summary: Add segment using a web behavior 'before' some time"
