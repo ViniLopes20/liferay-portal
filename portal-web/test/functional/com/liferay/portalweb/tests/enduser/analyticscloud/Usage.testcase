@@ -28,6 +28,11 @@ definition {
 		if ("${testPortalInstance}" == "true") {
 			PortalInstances.tearDownCP();
 		}
+		else {
+			JSONGroup.deleteGroupByName(groupName = "Site Name");
+		}
+
+		JSONUser.tearDownNonAdminUsers();
 
 		ACUtils.tearDownAC();
 	}
@@ -359,38 +364,18 @@ definition {
 
 		task ("Navigate to Workspace Settings") {
 			ACNavigation.goToSettings();
-
-			ACSettings.goToWorkspace();
 		}
 
 		task ("Navigate to the Usage") {
 			ACSettings.goToUsage();
 		}
 
-		task ("View the current number on Page Views card not equals 0") {
+		task ("Get the current number value") {
 			var current = ACSettings.getCurrentNumber(metricName = "Page Views");
-
-			TestUtils.assertNotEquals(
-				actual = "${current}",
-				expected = "0");
 		}
 
-		task ("View the usage percentage on Page Views") {
+		task ("Get the usage percentage on Page Views") {
 			var percentage = ACSettings.getUsagePercentage(metricName = "Page Views");
-
-			var result = MathUtil.isGreaterThan("${current}", "375,000");
-
-			if ("${result}" == "true") {
-				TestUtils.assertNotEquals(
-					actual = "${percentage}",
-					expected = "0%");
-			}
-
-			else {
-				TestUtils.assertEquals(
-					actual = "${percentage}",
-					expected = "0%");
-			}
 		}
 
 		task ("View the oveview usage on Page Views card") {
