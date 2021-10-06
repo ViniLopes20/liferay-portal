@@ -39,6 +39,8 @@ definition {
 			JSONGroup.deleteGroupByName(groupName = "Site Name");
 		}
 
+		JSONUser.tearDownNonAdminUsers();
+
 		ACUtils.tearDownAC();
 	}
 
@@ -744,6 +746,8 @@ definition {
 				Navigator.gotoSitePage(
 					pageName = "AC Page",
 					siteName = "Site Name");
+
+				Pause(locator1 = "5000");
 			}
 
 			ACUtils.closeAllSessionsAndWait();
