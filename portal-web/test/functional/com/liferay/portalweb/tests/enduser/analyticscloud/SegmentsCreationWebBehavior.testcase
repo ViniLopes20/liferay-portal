@@ -315,9 +315,13 @@ definition {
 			userLoginEmailAddress = "ac@liferay.com",
 			userLoginFullName = "ac ac");
 
-		Navigator.gotoSitePage(
-			pageName = "AC Page",
-			siteName = "Site Name");
+		for (var n : list "1,2") {
+			Navigator.gotoSitePage(
+				pageName = "AC Page",
+				siteName = "Site Name");
+
+			Pause(locator1 = "5000");
+		}
 
 		ACUtils.closeAllSessionsAndWait();
 
@@ -344,13 +348,11 @@ definition {
 
 		ACNavigation.switchTab(tabName = "Membership");
 
-		AssertTextEquals(
-			locator1 = "ACSegments#NO_MEMBER_TITLE",
-			value1 = "There are no items found.");
+		ACUtils.viewNoResultsMessage(noResultMessage = "There are no items found.");
 
 		ACUtils.launchDXP(userEmailAddress = "ac@liferay.com");
 
-		for (var n : list "1,2,3,4") {
+		for (var n : list "1,2,3") {
 			Navigator.gotoSitePage(
 				pageName = "AC Page",
 				siteName = "Site Name");
