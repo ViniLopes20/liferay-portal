@@ -382,6 +382,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9112 | Test Summary: New properties generated IDs are not incremental"
 	@priority = "4"
 	test NewPropertiesGeneratedIDsAreNotIncremental {
+		property portal.upstream = "vini";
+
 		task ("Sign in AC") {
 			ACUtils.launchAC();
 		}
