@@ -15,7 +15,7 @@ definition {
 		}
 
 		task ("Set up instance and sign in DXP") {
-			TestCase.setUpPortalInstance();
+			// TestCase.setUpPortalInstance();
 
 			ACUtils.launchDXP();
 		}
@@ -28,28 +28,28 @@ definition {
 			ACCustomEvents.createWCWithCustomEventAndAddToPage();
 		}
 
-		task ("Add a new user") {
-			JSONUser.addUser(
-				userEmailAddress = "ac@liferay.com",
-				userFirstName = "ac",
-				userLastName = "ac",
-				userScreenName = "ac");
+		// task ("Add a new user") {
+		// 	JSONUser.addUser(
+		// 		userEmailAddress = "ac@liferay.com",
+		// 		userFirstName = "ac",
+		// 		userLastName = "ac",
+		// 		userScreenName = "ac");
 
-			JSONUser.setFirstPassword(
-				agreeToTermsAndAnswerReminderQuery = "true",
-				requireReset = "false",
-				userEmailAddress = "ac@liferay.com");
-		}
+		// 	JSONUser.setFirstPassword(
+		// 		agreeToTermsAndAnswerReminderQuery = "true",
+		// 		requireReset = "false",
+		// 		userEmailAddress = "ac@liferay.com");
+		// }
 
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
 
-		task ("Sign in as new user") {
-			User.logoutAndLoginPG(
-				userLoginEmailAddress = "ac@liferay.com",
-				userLoginFullName = "ac ac");
-		}
+		// task ("Sign in as new user") {
+		// 	User.logoutAndLoginPG(
+		// 		userLoginEmailAddress = "ac@liferay.com",
+		// 		userLoginFullName = "ac ac");
+		// }
 
 		task ("View the site page") {
 			ACUtils.navigateToSitePage(
@@ -72,7 +72,7 @@ definition {
 
 		JSONUser.tearDownNonAdminUsers();
 
-		ACUtils.tearDownAC();
+		// ACUtils.tearDownAC();
 	}
 
 	@description = "Feature ID: LRAC-4265 | Automation ID: LRAC-10004 | Test Summary: Rename Custom Event Display Name"
@@ -475,6 +475,98 @@ definition {
 		task ("Check that the display name cannot be renamed to an existing one") {
 			ACCustomEvents.viewInvalidCustomEventEdition(invalidMessage = "An event already exists with that display name. Please enter a different display name.");
 		}
+	}
+
+	@description = "Feature ID: LRAC-4265 | Automation ID: LRAC-10008 | Test Summary: Sample javascript copy"
+	@priority = "5"
+	test CanCopySampleJavascript {
+		var layoutName = "Custom 2";
+
+		task ("Fill fields and create custom event") {
+			var customEventName1 = ACCustomEvents.generateCustomEventName();
+
+			ACCustomEvents.createCustomEvent(
+				customEventName = "${customEventName1}",
+				attributesName = "category",
+				attributesValue = "wetsuit",
+				timeToSendCustomEvent = "1");
+		}
+
+		task ("Close sessions") {
+			ACUtils.closeAllSessionsAndWait();
+		}
+
+		task ("Switch the property in AC") {
+			ACUtils.launchAC();
+
+			ACProperties.switchProperty(propertyName = "${assignedPropertyName}");
+		}
+
+		task ("Navigation to custom events tab") {
+			ACNavigation.goToSettings();
+
+			ACSettings.goToDefinitions();
+
+			ACSettings.goToEvents();
+
+			ACNavigation.openItem(itemName = "Custom Events");
+		}
+
+		ACNavigation.openItem(itemName = "${customEventName1}");
+
+		Copy(locator1 = "//code");
+
+		ACUtils.clickAnyButton(button = "Edit");
+
+		Paste(locator1 = "TextArea#DESCRIPTION");
+
+		var sampleJavascript = selenium.getText("TextArea#DESCRIPTION");
+
+		for (var documentTitle : list "canonicalUrl,pageDescription,pageKeywords,pageTitle,referrer,url,category") {
+			sampleJavascript = StringUtil.replace("${sampleJavascript}", "'${documentTitle}'", "${documentTitle}");
+		}
+
+		sampleJavascript = StringUtil.replace("${sampleJavascript}", "'", "\"");
+		sampleJavascript = StringUtil.replace("${sampleJavascript}", " ", "");
+		var customEventName2 = ACCustomEvents.generateCustomEventName();
+		sampleJavascript = StringUtil.replace("${sampleJavascript}", "${customEventName1}", "${customEventName2}");
+		sampleJavascript = StringUtil.replace("${sampleJavascript}", "category", "device");
+		sampleJavascript = StringUtil.replace("${sampleJavascript}", "wetsuit", "linux");
+
+		ACUtils.launchDXP(userEmailAddress = "ac@liferay.com");
+
+		ACUtils.addPage(layoutName = "${layoutName}");
+
+		task ("Add a Web Content Display to page and display the custom event") {
+			ACUtils.createWCAndAddToPage(
+				layoutName = "${layoutName}",
+				webContentContent = '''<div><button class="mybutton-shop" onclick="buySurfwear()">Buy</button></div> <script> function buySurfwear() { ${sampleJavascript} } </script>''',
+				webContentTitle = "Custom Event AC Title 2");
+		}
+
+		Click(locator1 = "ACCustomEvents#SEND_CUSTOM_EVENTS");
+
+		task ("Close sessions") {
+			ACUtils.closeAllSessionsAndWait();
+		}
+
+		task ("Switch the property in AC") {
+			ACUtils.launchAC();
+
+			ACProperties.switchProperty(propertyName = "${assignedPropertyName}");
+		}
+
+		task ("Navigation to custom events tab") {
+			ACNavigation.goToSettings();
+
+			ACSettings.goToDefinitions();
+
+			ACSettings.goToEvents();
+
+			ACNavigation.openItem(itemName = "Custom Events");
+		}
+
+		ACNavigation.openItem(itemName = "${customEventName2}");
 	}
 
 }
