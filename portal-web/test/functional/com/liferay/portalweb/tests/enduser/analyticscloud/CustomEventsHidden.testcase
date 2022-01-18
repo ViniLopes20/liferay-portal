@@ -387,6 +387,8 @@ definition {
 	@description = "Feature ID: LRAC-7865 | Automation ID: LRAC-10234 | Test Summary: Non-admin cannot hide events"
 	@priority = "5"
 	test NonAdminUserCannotHideEvents {
+		property portal.upstream = "vini";
+
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
 
@@ -413,14 +415,12 @@ definition {
 			ACSettings.goToEvents();
 
 			ACNavigation.openItem(itemName = "Custom Events");
+
+			ACSettings.goToUserManagement();
 		}
 
 		task ("Assert hidden event icon is not present") {
 			var key_nameList = "${customEventName}";
-
-			if (IsElementNotPresent(locator1 = "ACUtils#NAME_LIST")) {
-				ACUtils.searchBar(searchItem = "${customEventName}");
-			}
 
 			MouseOver(locator1 = "ACUtils#NAME_LIST");
 
