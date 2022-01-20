@@ -746,6 +746,7 @@ definition {
 				filterName = "${filterName}",
 				inputValue = "25",
 				month = "November",
+				year = "2021",
 				optionValue = "is");
 		}
 
@@ -768,6 +769,7 @@ definition {
 				filterName = "${filterName}",
 				inputValue = "24",
 				month = "November",
+				year = "2021",
 				optionValue = "before");
 		}
 
@@ -784,6 +786,7 @@ definition {
 				filterName = "${filterName}",
 				inputValue = "24",
 				month = "November",
+				year = "2021",
 				optionValue = "after");
 		}
 
@@ -801,6 +804,7 @@ definition {
 				inputEndValue = "26",
 				inputValue = "23",
 				month = "November",
+				year = "2021",
 				optionValue = "is between");
 		}
 
