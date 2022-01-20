@@ -119,6 +119,7 @@ definition {
 	@description = "Feature ID: LRAC-7865 | Automation ID: LRAC-10232 | Test Summary: Hide a default event and hide a custom event"
 	@priority = "5"
 	test CanHideDefaultAndCustomEvent {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "CustomEventsHiden#CanHideDefaultAndCustomEvent";
 
 		var defaultEventName = "assetDownloaded";
