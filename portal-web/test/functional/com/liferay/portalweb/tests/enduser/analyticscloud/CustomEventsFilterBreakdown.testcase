@@ -709,9 +709,14 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10280 | Test Summary: Event Analysis creation with Filtered Attribute (Date) and (Is/Is before/Is after/Is between) condition"
 	@priority = "3"
 	test CreateEventAnalysisWithDateAttributeFilterAllCondition {
+		property portal.upstream = "vini";
+
 		var attributeName = "pageTitle";
 		var filterName = "birthdate";
-		var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		//var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		var dataSource = "liferay dxp";
 
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
@@ -746,8 +751,8 @@ definition {
 				filterName = "${filterName}",
 				inputValue = "25",
 				month = "November",
-				year = "2021",
-				optionValue = "is");
+				optionValue = "is",
+				year = "2021");
 		}
 
 		task ("Change the time filter to 24 hours") {
@@ -769,8 +774,8 @@ definition {
 				filterName = "${filterName}",
 				inputValue = "24",
 				month = "November",
-				year = "2021",
-				optionValue = "before");
+				optionValue = "before",
+				year = "2021");
 		}
 
 		task ("Check that the analysis result does not appear") {
@@ -786,8 +791,8 @@ definition {
 				filterName = "${filterName}",
 				inputValue = "24",
 				month = "November",
-				year = "2021",
-				optionValue = "after");
+				optionValue = "after",
+				year = "2021");
 		}
 
 		task ("Check that the analysis result appears") {
@@ -804,8 +809,8 @@ definition {
 				inputEndValue = "26",
 				inputValue = "23",
 				month = "November",
-				year = "2021",
-				optionValue = "is between");
+				optionValue = "is between",
+				year = "2021");
 		}
 
 		task ("Check that the analysis result appears") {
