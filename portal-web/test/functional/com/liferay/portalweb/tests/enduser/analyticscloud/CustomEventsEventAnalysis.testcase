@@ -550,6 +550,8 @@ definition {
 	@description = "Feature ID: LRAC-4266 | Automation ID: LRAC-10295 | Test Summary: Search for events in different tabs"
 	@priority = "3"
 	test SearchEventsInDifferentTabs {
+		property portal.upstream = "vini";
+
 		var defaultEventName = "pageViewed";
 
 		task ("Fill fields and create custom event") {
