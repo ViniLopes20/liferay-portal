@@ -334,6 +334,8 @@ definition {
 	@description = "Feature ID: LRAC-7346 | Automation ID: LRAC-10151 | Test Summary: Blocked events are not processed"
 	@priority = "5"
 	test CheckEventAnalysisNotUpdatedWhenEventIsBlocked {
+		property portal.upstream = "vini";
+
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
 
@@ -369,7 +371,7 @@ definition {
 		task ("Navigation to settings and discart discard analysis change") {
 			ACNavigation.goToSettings();
 
-			if (IsElementPresent(locator1 = "ACUtils#GENERIC_BUTTON",key_buttonName = "Leave Page")) {
+			if (IsElementPresent(key_buttonName = "Leave Page", locator1 = "ACUtils#GENERIC_BUTTON")) {
 				ACUtils.clickAnyButton(button = "Leave Page");
 			}
 		}
