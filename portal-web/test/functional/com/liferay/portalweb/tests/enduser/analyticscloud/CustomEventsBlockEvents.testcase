@@ -366,9 +366,15 @@ definition {
 			ACEventAnalysis.viewAnalysisInformation(informationValueList = "1");
 		}
 
-		task ("Navigation to custom events tab") {
+		task ("Navigation to settings and discart discard analysis change") {
 			ACNavigation.goToSettings();
 
+			if (IsElementPresent(locator1 = "ACUtils#GENERIC_BUTTON",key_buttonName = "Leave Page")) {
+				ACUtils.clickAnyButton(button = "Leave Page");
+			}
+		}
+
+		task ("Navigation to custom events tab") {
 			ACSettings.goToDefinitions();
 
 			ACSettings.goToEvents();
