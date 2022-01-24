@@ -230,6 +230,8 @@ definition {
 	@description = "Feature ID: LRAC-7185 | Automation ID: LRAC-10203 | Test Summary: Change data type to Time"
 	@priority = "4"
 	test CanChangeDataTypeToTime {
+		property portal.upstream = "vini";
+
 		var attributeName = "portal";
 		var attributeValue = "ac";
 
