@@ -177,9 +177,14 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10269 | Test Summary: Attribute breakdowns are sorted by the highest event count"
 	@priority = "4"
 	test AssertAttributeBreakdownsSortedByHighestEventCount {
+		property portal.upstream = "vini";
+
 		var attributeNameList = "pageTitle,url";
 		var layoutNameList = "Custom 1,Custom 2";
-		var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		//var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		var dataSource = "liferay dxp";
 
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
@@ -447,9 +452,14 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10270 | Test Summary: Sorting the analysis result ascending and descending"
 	@priority = "4"
 	test AssertTheAnalysisResultIsSorted {
+		property portal.upstream = "vini";
+
 		var attributeNameList = "pageTitle,url";
 		var layoutNameList = "Custom 1,Custom 2";
-		var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		//var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		var dataSource = "liferay dxp";
 
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
@@ -1048,9 +1058,14 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10272 | Test Summary: Sorting the analysis result after rearranging the breakdowns"
 	@priority = "3"
 	test SortTheResultsAnalysisAfterRearrangingBreakdowns {
+		property portal.upstream = "vini";
+
 		var attributeNameList = "pageTitle,category";
 		var layoutNameList = "Custom 1,Custom 2";
-		var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		//var dataSource = StringUtil.extractFirst("${assignedPropertyName}", " ");
+
+		var dataSource = "liferay dxp";
 
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
