@@ -241,6 +241,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8320 | Test Summary: Property field is displayed in empty state when no property is available"
 	@priority = "4"
 	test PropertyFieldWhenNoProperty {
+		property portal.upstream = "vini";
+
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud();
 		}
