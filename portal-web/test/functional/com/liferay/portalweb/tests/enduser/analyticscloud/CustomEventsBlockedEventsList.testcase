@@ -130,6 +130,8 @@ definition {
 	@description = "Bug: LRAC-10359 | Automation ID: LRAC-10360 | Test Summary: Sort blocked events by Event Name and Last Seen"
 	@priority = "4"
 	test CanSortBlockedEventsByNameAndLastSeen {
+		property portal.upstream = "vini";
+
 		task ("Add a Web Content Display to page and display the custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
 
