@@ -821,7 +821,7 @@ definition {
 	@description = "Documents visitor behavior card shows expected amount of views"
 	@priority = "5"
 	test VisitorBehaviorCardShowsExpectedAmountOfPreviewsInDM {
-		property portal.upstream = "quarantine";
+		property portal.upstream = "vini";
 
 		var documentNameList = "DM AC Title,DM AC Title";
 
