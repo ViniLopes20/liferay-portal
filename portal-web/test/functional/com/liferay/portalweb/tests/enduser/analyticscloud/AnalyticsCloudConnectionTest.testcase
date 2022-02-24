@@ -173,6 +173,7 @@ definition {
 	@priority = "3"
 	test AssertLiferayDataSourceStatus {
 		property portal.release = "true";
+		property portal.upstream = "true";
 
 		var list1 = ListUtil.newListFromString("Current Status,Synced Sites,Synced Contacts");
 		var statusSyncSite = ListUtil.newListFromString("Active,Configured,Unconfigured");
