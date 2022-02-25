@@ -698,7 +698,7 @@ definition {
 		}
 
 		task ("Choose a rating star for the blog") {
-			Ratings.rateStar(ratingStarCount = "4");
+			Ratings.rateStar(ratingStarCount = "3");
 		}
 
 		task ("Close sessions") {
@@ -726,7 +726,7 @@ definition {
 		task ("Check blog rating") {
 			ACUtils.viewTableInformation(
 				nameList = "Blogs AC Title",
-				numberValueList = "8.00/10");
+				numberValueList = "6.00/10");
 		}
 
 		task ("Go to DXP") {
