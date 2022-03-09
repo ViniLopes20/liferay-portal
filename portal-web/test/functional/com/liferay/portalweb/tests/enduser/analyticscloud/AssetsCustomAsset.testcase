@@ -112,6 +112,7 @@ definition {
 	@priority = "5"
 	test CanCreateMultipleCustomAssetReport {
 		property portal.acceptance = "true";
+		property portal.upstream = "vini";
 
 		task ("Sign in as new user") {
 			User.logoutAndLoginPG(
