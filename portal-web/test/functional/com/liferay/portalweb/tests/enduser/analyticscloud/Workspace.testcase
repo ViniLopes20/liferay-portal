@@ -8,7 +8,8 @@ definition {
 
 	setUp {
 		task ("Sign in AC") {
-			TestCase.setUpPortalInstance();
+
+			//TestCase.setUpPortalInstance();
 
 			ACUtils.launchAC();
 		}
@@ -19,9 +20,9 @@ definition {
 
 		ACUtils.tearDownDXP();
 
-		if ("${testPortalInstance}" == "true") {
-			PortalInstances.tearDownCP();
-		}
+		//if ("${testPortalInstance}" == "true") {
+		//	PortalInstances.tearDownCP();
+		//}
 
 		ACUtils.tearDownAC();
 
@@ -69,6 +70,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9149 | Test Summary: Information banner should no longer be shown after being dismissed by a user"
 	@priority = "5"
 	test CannotViewInformationBannerAfterDismissedByUser {
+		property portal.upstream = "vini";
+
 		task ("Navigate to Workspace Settings") {
 			ACNavigation.goToSettings();
 
@@ -281,6 +284,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9150 | Test Summary: Information banners should not be stacked after changing a time zone"
 	@priority = "5"
 	test ViewOnlyOneInformationBannerShownAfterChangeTimezone {
+		property portal.upstream = "vini";
+
 		task ("Navigate to Workspace Settings") {
 			ACNavigation.goToSettings();
 
