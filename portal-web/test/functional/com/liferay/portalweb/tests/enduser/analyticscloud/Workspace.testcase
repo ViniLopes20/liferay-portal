@@ -8,7 +8,8 @@ definition {
 
 	setUp {
 		task ("Sign in AC") {
-			TestCase.setUpPortalInstance();
+
+			//TestCase.setUpPortalInstance();
 
 			ACUtils.launchAC();
 		}
@@ -19,9 +20,9 @@ definition {
 
 		ACUtils.tearDownDXP();
 
-		if ("${testPortalInstance}" == "true") {
-			PortalInstances.tearDownCP();
-		}
+		//if ("${testPortalInstance}" == "true") {
+		//	PortalInstances.tearDownCP();
+		//}
 
 		ACUtils.tearDownAC();
 
@@ -69,16 +70,18 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9149 | Test Summary: Information banner should no longer be shown after being dismissed by a user"
 	@priority = "5"
 	test CannotViewInformationBannerAfterDismissedByUser {
+		property portal.upstream = "vini";
+
 		task ("Navigate to Workspace Settings") {
 			ACNavigation.goToSettings();
 
 			ACSettings.goToWorkspace();
 		}
 
-		task ("Change the timezone to Los Angeles of United States") {
+		task ("Change the timezone to Hong Kong of China") {
 			ACWorkspace.configureWorkspaceSettings(
-				timezone = "United States",
-				timezoneId = "UTC-08:00 Pacific Time (America/Los Angeles)");
+				timezone = "China",
+				timezoneId = "UTC+08:00 Hong Kong Time (Asia/Hong Kong)");
 
 			ACUtils.waitForLoading();
 		}
@@ -88,7 +91,7 @@ definition {
 		}
 
 		task ("View the information banner") {
-			ACUtils.viewAlertInfo(infoMessage = "Workspace timezone has changed to UTC-08:00 Pacific Time");
+			ACUtils.viewAlertInfo(infoMessage = "Workspace timezone has changed to UTC+08:00 Hong Kong Time");
 		}
 
 		task ("Dismiss the information banner") {
@@ -281,16 +284,18 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9150 | Test Summary: Information banners should not be stacked after changing a time zone"
 	@priority = "5"
 	test ViewOnlyOneInformationBannerShownAfterChangeTimezone {
+		property portal.upstream = "vini";
+
 		task ("Navigate to Workspace Settings") {
 			ACNavigation.goToSettings();
 
 			ACSettings.goToWorkspace();
 		}
 
-		task ("Change the timezone to Los Angeles of United States") {
+		task ("Change the timezone to Madrid of Spain") {
 			ACWorkspace.configureWorkspaceSettings(
-				timezone = "United States",
-				timezoneId = "UTC-08:00 Pacific Time (America/Los Angeles)");
+				timezone = "Spain",
+				timezoneId = "UTC+01:00 Central European Time (Europe/Madrid)");
 
 			ACUtils.waitForLoading();
 		}
@@ -300,7 +305,7 @@ definition {
 		}
 
 		task ("View the information banner") {
-			ACUtils.viewAlertInfo(infoMessage = "Workspace timezone has changed to UTC-08:00 Pacific Time");
+			ACUtils.viewAlertInfo(infoMessage = "Workspace timezone has changed to UTC+01:00 Central European Time");
 		}
 
 		task ("Change the timezone to Shanghai of China") {
