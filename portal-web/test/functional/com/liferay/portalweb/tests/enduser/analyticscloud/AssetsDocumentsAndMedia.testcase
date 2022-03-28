@@ -813,6 +813,8 @@ definition {
 	@description = "Bug: ACP-274 | Automation ID: LRAC-10672 | Test Summary: Download a document by download button (enabled through show actions portlet configuration)"
 	@priority = "4"
 	test DownloadDocumentByDownloadButton {
+		property portal.upstream = "vini";
+
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
@@ -875,6 +877,8 @@ definition {
 	@description = "Bug: ACP-274 | Automation ID: LRAC-10671 | Test Summary: Download a document by info button"
 	@priority = "4"
 	test DownloadDocumentByInfoButton {
+		property portal.upstream = "vini";
+
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
@@ -937,6 +941,8 @@ definition {
 	@description = "Bug: ACP-274 | Automation ID: LRAC-10673 | Test Summary: Download a document by the three dots (enabled through show actions portlet configuration)"
 	@priority = "4"
 	test DownloadDocumentByThreeDots {
+		property portal.upstream = "vini";
+
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
