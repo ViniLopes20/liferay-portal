@@ -810,81 +810,9 @@ definition {
 		ACUtils.viewNameList(nameList = "${assetName}");
 	}
 
-	@description = "Documents visitor behavior card shows expected amount of views"
-	@priority = "5"
-	test VisitorBehaviorCardShowsExpectedAmountOfPreviewsInDM {
-		var documentNameList = "DM AC Title,DM AC Title";
-
-		task ("Connect the DXP to AC") {
-			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
-		}
-
-		task ("View the documents and media page") {
-			ACUtils.navigateToSitePage(
-				actionType = "View DM",
-				documentTitleList = "DM AC Title",
-				pageName = "AC Page",
-				siteName = "Site Name");
-		}
-
-		task ("View the documents and media page") {
-			ACUtils.navigateToSitePage(
-				actionType = "Download DM",
-				documentTitleList = "${documentNameList}",
-				pageName = "AC Page",
-				siteName = "Site Name");
-		}
-
-		task ("Close sessions") {
-			ACUtils.closeAllSessionsAndWait();
-		}
-
-		task ("Switch to new property in AC") {
-			ACUtils.launchAC();
-
-			ACProperties.switchProperty(propertyName = "${assignedPropertyName}");
-		}
-
-		task ("Navigate to documents and media assets list") {
-			ACNavigation.goToAssets();
-
-			ACNavigation.switchTab(tabName = "Documents and Media");
-		}
-
-		task ("Change the time filter") {
-			ACTimeFilter.clickTimeFilterButton();
-
-			ACTimeFilter.setLast24Hours();
-		}
-
-		task ("Check the number of downloads and previews in the documents and media assets list") {
-			ACUtils.viewTableInformation(
-				nameList = "DM AC Title",
-				numberValueList = "3");
-
-			ACUtils.viewTableInformation(
-				nameList = "DM AC Title",
-				numberValueList = "2");
-		}
-
-		task ("Navigate to the overview tab in document report entry") {
-			ACNavigation.openItem(itemName = "DM AC Title");
-		}
-
-		task ("Check the number of downloads and previews in the overview tab") {
-			ACAssets.viewVisitorsBehaviorMetric(
-				metricTitle = "Previews",
-				metricValue = "3");
-
-			ACAssets.viewVisitorsBehaviorMetric(
-				metricTitle = "Downloads",
-				metricValue = "2");
-		}
-	}
-
-	@description = "Bug: ACP-274 | Automation ID: LRAC-10671 | Test Summary: Download a document by info button"
+	@description = "Bug: ACP-274 | Automation ID: LRAC-10672 | Test Summary: Download a document by download button (enabled through show actions portlet configuration)"
 	@priority = "4"
-	test DownloadDocumentByInfoButton {
+	test DownloadDocumentByDownloadButton {
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
@@ -895,14 +823,14 @@ definition {
 				siteName = "Site Name");
 		}
 
+		task ("Enable show actions option") {
+			DMDocument.enableActionsMenuOnPortlet();
+		}
+
 		task ("Download the documents and media") {
 			PortletEntry.selectAll();
 
-			ManagementBar.clickInfo();
-
-			AssertClick.assertPartialTextClickAt(
-				locator1 = "Button#DOWNLOAD_SIDEBAR",
-				value1 = "Download");
+			Click.clickNoMouseOver(locator1 = "Icon#DOWNLOAD");
 		}
 
 		task ("Close sessions") {
@@ -944,9 +872,9 @@ definition {
 		}
 	}
 
-	@description = "Bug: ACP-274 | Automation ID: LRAC-10672 | Test Summary: Download a document by download button (enabled through show actions portlet configuration)"
+	@description = "Bug: ACP-274 | Automation ID: LRAC-10671 | Test Summary: Download a document by info button"
 	@priority = "4"
-	test DownloadDocumentByDownloadButton {
+	test DownloadDocumentByInfoButton {
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
@@ -957,14 +885,14 @@ definition {
 				siteName = "Site Name");
 		}
 
-		task ("Enable show actions option") {
-			DMDocument.enableActionsMenuOnPortlet();
-		}
-
 		task ("Download the documents and media") {
 			PortletEntry.selectAll();
 
-			Click.clickNoMouseOver(locator1 = "Icon#DOWNLOAD");
+			ManagementBar.clickInfo();
+
+			AssertClick.assertPartialTextClickAt(
+				locator1 = "Button#DOWNLOAD_SIDEBAR",
+				value1 = "Download");
 		}
 
 		task ("Close sessions") {
@@ -1062,6 +990,182 @@ definition {
 		}
 
 		task ("Check the number of downloads and previews in the overview tab") {
+			ACAssets.viewVisitorsBehaviorMetric(
+				metricTitle = "Downloads",
+				metricValue = "2");
+		}
+	}
+
+	@description = "Feature ID: Legacy | Automation ID: LRAC-8118 | Test Summary: Document known individuals list shows the individuals who have viewed the documents"
+	@priority = "5"
+	test KnownIndividualsListShowsIndividualsWhoHaveViewedDocuments {
+		var usernameList = "ac,liferay";
+		var emailList = "ac@liferay.com,liferay@liferay.com";
+		var nameList = "ac ac,liferay liferay";
+
+		for (var name : list "${usernameList}") {
+			JSONUser.addUser(
+				userEmailAddress = "${name}@liferay.com",
+				userFirstName = "${name}",
+				userLastName = "${name}",
+				userScreenName = "${name}");
+		}
+
+		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
+
+		ACUtils.navigateToSitePageWithUser(
+			actionType = "Download DM",
+			documentTitleList = "DM AC Title",
+			emailList = "${emailList}",
+			pageName = "AC Page",
+			siteName = "Site Name");
+
+		JSONUser.addUser(
+			userEmailAddress = "userac@liferay.com",
+			userFirstName = "userac",
+			userLastName = "userac",
+			userScreenName = "userac");
+
+		ACUtils.navigateToSitePageWithUser(
+			actionType = "Download DM",
+			documentTitleList = "DM AC Title",
+			emailList = "userac@liferay.com",
+			pageName = "AC Page",
+			siteName = "Site Name");
+
+		ACUtils.closeAllSessionsAndWait();
+
+		ACUtils.launchAC();
+
+		ACProperties.switchProperty(propertyName = "${propertyName}");
+
+		ACNavigation.goToAssets();
+
+		ACNavigation.switchTab(tabName = "Documents and Media");
+
+		ACTimeFilter.clickTimeFilterButton();
+
+		ACTimeFilter.setLast24Hours();
+
+		ACNavigation.openItem(itemName = "DM AC Title");
+
+		ACIndividualsDashboard.goToKnownIndividualsTab();
+
+		ACNavigation.viewActiveSwitchTab(tabName = "Known Individuals");
+
+		ACTimeFilter.clickTimeFilterButton();
+
+		ACTimeFilter.setLast24Hours();
+
+		ACUtils.viewNameList(nameList = "${nameList}");
+
+		AssertElementNotPresent(
+			key_userName = "userac userac",
+			locator1 = "ACSegments#SEGMENT_MEMBERS");
+	}
+
+	@description = "Feature ID: Legacy | Automation ID: LRAC-8115 | Test Summary: Assert document list shows all of the documents and media assets in a list"
+	@priority = "5"
+	test ViewAllDocumentsAndMediaShownInAssetList {
+		var assetName = "DM AC Title,DM AC Title 2,DM AC Title 3,DM AC Title 4";
+
+		for (var n : list "2,3,4") {
+			ACUtils.createDMAndAddToPage(
+				dmDocumentFile = "Document_${n}.jpg",
+				dmDocumentTitle = "DM AC Title ${n}");
+		}
+
+		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
+
+		ACUtils.navigateToSitePage(
+			actionType = "Download DM",
+			documentTitleList = "${assetName}",
+			pageName = "AC Page",
+			siteName = "Site Name");
+
+		ACUtils.closeAllSessionsAndWait();
+
+		ACUtils.launchAC();
+
+		ACProperties.switchProperty(propertyName = "${propertyName}");
+
+		ACNavigation.goToAssets();
+
+		ACNavigation.switchTab(tabName = "Documents and Media");
+
+		ACTimeFilter.clickTimeFilterButton();
+
+		ACTimeFilter.setLast24Hours();
+
+		ACUtils.viewNameList(nameList = "${assetName}");
+	}
+
+	@description = "Documents visitor behavior card shows expected amount of views"
+	@priority = "5"
+	test VisitorBehaviorCardShowsExpectedAmountOfPreviewsInDM {
+		var documentNameList = "DM AC Title,DM AC Title";
+
+		task ("Connect the DXP to AC") {
+			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
+		}
+
+		task ("View the documents and media page") {
+			ACUtils.navigateToSitePage(
+				actionType = "View DM",
+				documentTitleList = "DM AC Title",
+				pageName = "AC Page",
+				siteName = "Site Name");
+		}
+
+		task ("View the documents and media page") {
+			ACUtils.navigateToSitePage(
+				actionType = "Download DM",
+				documentTitleList = "${documentNameList}",
+				pageName = "AC Page",
+				siteName = "Site Name");
+		}
+
+		task ("Close sessions") {
+			ACUtils.closeAllSessionsAndWait();
+		}
+
+		task ("Switch to new property in AC") {
+			ACUtils.launchAC();
+
+			ACProperties.switchProperty(propertyName = "${assignedPropertyName}");
+		}
+
+		task ("Navigate to documents and media assets list") {
+			ACNavigation.goToAssets();
+
+			ACNavigation.switchTab(tabName = "Documents and Media");
+		}
+
+		task ("Change the time filter") {
+			ACTimeFilter.clickTimeFilterButton();
+
+			ACTimeFilter.setLast24Hours();
+		}
+
+		task ("Check the number of downloads and previews in the documents and media assets list") {
+			ACUtils.viewTableInformation(
+				nameList = "DM AC Title",
+				numberValueList = "3");
+
+			ACUtils.viewTableInformation(
+				nameList = "DM AC Title",
+				numberValueList = "2");
+		}
+
+		task ("Navigate to the overview tab in document report entry") {
+			ACNavigation.openItem(itemName = "DM AC Title");
+		}
+
+		task ("Check the number of downloads and previews in the overview tab") {
+			ACAssets.viewVisitorsBehaviorMetric(
+				metricTitle = "Previews",
+				metricValue = "3");
+
 			ACAssets.viewVisitorsBehaviorMetric(
 				metricTitle = "Downloads",
 				metricValue = "2");
