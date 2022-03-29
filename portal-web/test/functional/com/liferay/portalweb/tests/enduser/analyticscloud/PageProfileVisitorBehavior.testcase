@@ -64,14 +64,20 @@ definition {
 	test ShowNumberOfUniqueVisitorsAndViews {
 		property portal.upstream = "vini";
 
+		task ("Create Blog to Add to Page") {
+			ACUtils.createBlogsAndAddToPage();
+		}
+
 		task ("Sign in as new user") {
 			User.logoutAndLoginPG(
 				userLoginEmailAddress = "userea@liferay.com",
 				userLoginFullName = "userfn userln");
 		}
 
-		task ("View the site page") {
+		task ("View the blog") {
 			ACUtils.navigateToSitePage(
+				actionType = "View Blog",
+				documentTitleList = "Blogs AC Title",
 				pageName = "AC Page",
 				siteName = "Site Name");
 		}
@@ -101,7 +107,7 @@ definition {
 		task ("Navigate to page report entry") {
 			var dataSourceName = StringUtil.extractFirst("${assignedPropertyName}", " ");
 
-			ACNavigation.openItem(itemName = "AC Page - Site Name - ${dataSourceName}");
+			ACNavigation.openItem(itemName = "Blogs AC Title - Site Name - Liferay DXP");
 		}
 
 		task ("Navigate to the Overview tab in Pages dashboard") {
