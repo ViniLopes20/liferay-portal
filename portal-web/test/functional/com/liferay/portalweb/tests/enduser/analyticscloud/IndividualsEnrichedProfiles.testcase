@@ -47,6 +47,7 @@ definition {
 	@priority = "5"
 	test IncreaseByOneWhenAnonymousIndividualConvertedToKnownIndividual {
 		property portal.acceptance = "true";
+		property portal.upstream = "vini";
 
 		task ("Sign out") {
 			UserBar.signOut();
