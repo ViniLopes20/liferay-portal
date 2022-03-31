@@ -532,6 +532,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8290 | Test Summary: Unique Visitors label is shown on the tabs of Pages dashboards"
 	@priority = "3"
 	test CanUniqueVisitorsLabelShowPagesDashboards {
+		property portal.upstream = "vini";
+
 		task ("Site and blogs creation and connection with AC") {
 			ACUtils.createBlogsAndAddToPage();
 
