@@ -40,6 +40,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8668 | Test Summary: Check blogClicked is triggered when a blog is clicked within a widget"
 	@priority = "3"
 	test CheckBlogClickedTriggeredWhenBlogClicked {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -113,6 +114,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8661 | Test Summary: Check blogClicked is triggered when a blog entry title is clicked and check its properties (see reference document in comments)"
 	@priority = "5"
 	test CheckBlogClickedWhenBlogEntryTitleIsClickedAndCheckProperties {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -490,6 +492,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8669 | Test Summary: Check blogViewed does not trigger when the blog is visible as a widget in the front page"
 	@priority = "2"
 	test CheckBlogViewedDoesNotTriggerWhenBlogIsVisible {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -541,6 +544,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8662 | Test Summary: Check blogViewed triggers when visiting a DXP blog and check its properties (see reference document in comments)"
 	@priority = "5"
 	test CheckBlogViewedWhenVisitingDXPBlogAndCheckProperties {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
