@@ -40,6 +40,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8668 | Test Summary: Check blogClicked is triggered when a blog is clicked within a widget"
 	@priority = "3"
 	test CheckBlogClickedTriggeredWhenBlogClicked {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -66,6 +67,12 @@ definition {
 				pageName = "AC Page",
 				siteName = "Site Name");
 
+			task ("Start Har recording") {
+				ProxyUtil.startHarRecording("blogClicked");
+
+				Pause(locator1 = "5000");
+			}
+
 			Click(
 				key_entryContent = "This is the blog test for AC",
 				locator1 = "BlogsEntry#CONTENT");
@@ -75,12 +82,6 @@ definition {
 			var entryId = JSONBlog.getBlogEntryId(
 				entryTitle = "Blogs AC Title",
 				groupName = "Site Name");
-		}
-
-		task ("Start Har recording") {
-			ProxyUtil.startHarRecording("blogClicked");
-
-			Pause(locator1 = "5000");
 		}
 
 		task ("View the properties of blogClicked event") {
@@ -113,6 +114,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8661 | Test Summary: Check blogClicked is triggered when a blog entry title is clicked and check its properties (see reference document in comments)"
 	@priority = "5"
 	test CheckBlogClickedWhenBlogEntryTitleIsClickedAndCheckProperties {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -139,6 +141,12 @@ definition {
 				pageName = "AC Page",
 				siteName = "Site Name");
 
+			task ("Start Har recording") {
+				ProxyUtil.startHarRecording("blogClicked");
+
+				Pause(locator1 = "5000");
+			}
+
 			Click(
 				key_entryTitle = "Blogs AC Title",
 				locator1 = "BlogsEntry#TITLE");
@@ -148,12 +156,6 @@ definition {
 			var entryId = JSONBlog.getBlogEntryId(
 				entryTitle = "Blogs AC Title",
 				groupName = "Site Name");
-		}
-
-		task ("Start Har recording") {
-			ProxyUtil.startHarRecording("blogClicked");
-
-			Pause(locator1 = "5000");
 		}
 
 		task ("View the properties of blogClicked event") {
@@ -490,6 +492,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8669 | Test Summary: Check blogViewed does not trigger when the blog is visible as a widget in the front page"
 	@priority = "2"
 	test CheckBlogViewedDoesNotTriggerWhenBlogIsVisible {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -509,6 +512,12 @@ definition {
 			var expectedDataSourceId = ACSettings.getDXPInstanceId(dataSourceName = "${dataSourceName}");
 		}
 
+		task ("Start Har recording") {
+			ProxyUtil.startHarRecording("BlogViewed");
+
+			Pause(locator1 = "5000");
+		}
+
 		task ("Go to the site page to assert the blog entry is displayed but don't visit it") {
 			ACUtils.navigateToSitePage(
 				pageName = "AC Page",
@@ -517,12 +526,6 @@ definition {
 			BlogsEntry.viewEntryPG(
 				entryContent = "This is the blog test for AC",
 				entryTitle = "Blogs AC Title");
-		}
-
-		task ("Start Har recording") {
-			ProxyUtil.startHarRecording("BlogViewed");
-
-			Pause(locator1 = "5000");
 		}
 
 		task ("View the BlogViewed event not triggered") {
@@ -541,6 +544,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8662 | Test Summary: Check blogViewed triggers when visiting a DXP blog and check its properties (see reference document in comments)"
 	@priority = "5"
 	test CheckBlogViewedWhenVisitingDXPBlogAndCheckProperties {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -560,6 +564,12 @@ definition {
 			var expectedDataSourceId = ACSettings.getDXPInstanceId(dataSourceName = "${dataSourceName}");
 		}
 
+		task ("Start Har recording") {
+			ProxyUtil.startHarRecording("blogViewed");
+
+			Pause(locator1 = "5000");
+		}
+
 		task ("Go to the site page to visit the blog") {
 			ACUtils.navigateToSitePage(
 				actionType = "View Blog",
@@ -572,12 +582,6 @@ definition {
 			var entryId = JSONBlog.getBlogEntryId(
 				entryTitle = "Blogs AC Title",
 				groupName = "Site Name");
-		}
-
-		task ("Start Har recording") {
-			ProxyUtil.startHarRecording("blogViewed");
-
-			Pause(locator1 = "5000");
 		}
 
 		task ("View the properties of blogClicked event") {
@@ -597,7 +601,7 @@ definition {
 				applicationId = "Blog",
 				eventId = "blogViewed",
 				property = "numberOfWords",
-				value = "20");
+				value = "22");
 		}
 
 		task ("View the request common properties value") {
