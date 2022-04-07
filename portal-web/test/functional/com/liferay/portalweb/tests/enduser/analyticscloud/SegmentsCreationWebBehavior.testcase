@@ -1191,6 +1191,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9225 | Test Summary: Create a Web Behavior Segment of Viewing a Page"
 	@priority = "4"
 	test CanCreateWebBehaviorSegmentViewingPage {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "SegmentsCreationWebBehavior#CanCreateWebBehaviorSegmentViewingPage";
 
 		var username = "ac";
