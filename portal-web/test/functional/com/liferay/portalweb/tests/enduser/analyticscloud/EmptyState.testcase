@@ -320,6 +320,7 @@ definition {
 	@description = "Feature ID: LRAC-10698 | Automation ID: LRAC-10869 | Test Summary: Empty state for all workspace pages"
 	@priority = "2"
 	test CheckMessageWhenNoPropertyNoDataSource {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "EmptyState#CheckMessageWhenNoPropertyNoDataSource";
 
 		var textValue = "First, complete the onboarding to get your workspace set up.";
