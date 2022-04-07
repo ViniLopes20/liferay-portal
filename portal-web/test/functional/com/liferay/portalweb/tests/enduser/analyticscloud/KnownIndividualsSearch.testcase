@@ -44,6 +44,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9018 | Test Summary: Search an Individual's Activities List with a query that won't return results"
 	@priority = "3"
 	test AssertNoIndividualsActivitiesResults {
+		property portal.upstream = "vini";
+
 		task ("Add DM to AC Page") {
 			ACUtils.createDMAndAddToPage();
 		}
