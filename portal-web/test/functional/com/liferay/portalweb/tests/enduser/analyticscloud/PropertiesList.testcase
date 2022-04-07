@@ -98,6 +98,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9120 | Test Summary: Property field is displayed in empty state when no property is available"
 	@priority = "3"
 	test ViewPropertyListDefault {
+		property portal.upstream = "vini";
+
 		task ("Go to properties") {
 			ACNavigation.goToSettings();
 
