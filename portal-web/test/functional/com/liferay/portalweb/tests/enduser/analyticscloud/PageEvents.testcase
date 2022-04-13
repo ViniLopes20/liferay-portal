@@ -758,6 +758,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8804 | Test Summary: Check tabBlurred fires whenever the user navigates to a different tab, window minimized or when the page is unloaded and check its properties (see reference document in comments)"
 	@priority = "5"
 	test CheckTabBlurredWhenComesFromADifferentTab {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get site assigned property name and get data source name") {
@@ -821,6 +822,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8869 | Test Summary: Check tabFocused fires once the tab is active and check its properties (see reference document in comments)"
 	@priority = "5"
 	test CheckTabFocusedOnceTabIsActive {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get site assigned property name and get data source name") {

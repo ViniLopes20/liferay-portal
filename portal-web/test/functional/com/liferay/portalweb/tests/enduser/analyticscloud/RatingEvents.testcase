@@ -48,6 +48,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8923 | Test Summary: Check vote is triggered when voting and check its properties"
 	@priority = "5"
 	test CheckVoteEventWhenVotingAndCheckProperties {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
