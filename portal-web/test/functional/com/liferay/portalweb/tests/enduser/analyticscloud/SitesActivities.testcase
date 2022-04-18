@@ -324,6 +324,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8279 | Test Summary: Site Activity Card: Can hover over a point on the graph to get detailed stats"
 	@priority = "5"
 	test CanHoverOverPointOnGraphGetStats {
+		property portal.upstream = "vini";
+
 		var usernameList = "ac,liferay";
 		var emailList = "ac@liferay.com,liferay@liferay.com";
 		var nameList = "ac ac,liferay liferay";
