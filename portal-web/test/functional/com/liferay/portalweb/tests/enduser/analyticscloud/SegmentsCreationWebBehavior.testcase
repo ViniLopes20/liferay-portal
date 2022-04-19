@@ -827,6 +827,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9219 | Test Summary: Add segment using a web behavior 'on' some time"
 	@priority = "4"
 	test CanCreateWebBehaviorSegmentUsingOn {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "SegmentsCreationWebBehavior#CanCreateWebBehaviorSegmentUsingOn";
 
 		ACUtils.createWCAndAddToPage();

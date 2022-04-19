@@ -70,6 +70,8 @@ definition {
 	@description = "Feature ID: LRAC-7532 | Automation ID: LRAC-8538 | Test Summary: Create custom asset report"
 	@priority = "5"
 	test CanCreateCustomAssetReport {
+		property portal.upstream = "vini";
+
 		task ("Sign in as new user") {
 			User.logoutAndLoginPG(
 				userLoginEmailAddress = "userea@liferay.com",
@@ -164,6 +166,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8095 | Test Summary: Can delete a custom asset report"
 	@priority = "5"
 	test CanDeleteCustomAssetReport {
+		property portal.upstream = "vini";
+
 		task ("Access the Custom Asset") {
 			User.logoutAndLoginPG(
 				userLoginEmailAddress = "userea@liferay.com",
