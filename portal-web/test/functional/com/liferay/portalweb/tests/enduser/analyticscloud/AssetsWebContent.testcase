@@ -359,6 +359,7 @@ definition {
 	@priority = "5"
 	test CanNavigateToWebContentOverviewPage {
 		property portal.acceptance = "true";
+		property portal.release = "true";
 		property test.name.skip.portal.instance = "AssetsWebContent#CanNavigateToWebContentOverviewPage";
 
 		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
