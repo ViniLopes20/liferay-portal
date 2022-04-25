@@ -567,6 +567,7 @@ definition {
 	@description = "Feature ID: LRAC-8171 | Automation ID: LRAC-10316 | Test Summary: Add a duplicate filter in Event Analysis"
 	@priority = "4"
 	test CanAddDuplicateFilterInEventAnalysis {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "CustomEventsFilterBreakdown#CanAddDuplicateFilterInEventAnalysis";
 
 		var attributeName = "pageTitle";
@@ -718,6 +719,7 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10286 | Test Summary: Event Analysis creation with Filtered Attribute (Boolean) and (True/False) condition"
 	@priority = "3"
 	test CreateEventAnalysisWithBooleanAttributeFilterTrueAndFalseCondition {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "CustomEventsFilterBreakdown#CreateEventAnalysisWithBooleanAttributeFilterTrueAndFalseCondition";
 
 		var attributeName = "pageTitle";
@@ -816,6 +818,7 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10280 | Test Summary: Event Analysis creation with Filtered Attribute (Date) and (Is/Is before/Is after/Is between) condition"
 	@priority = "3"
 	test CreateEventAnalysisWithDateAttributeFilterAllCondition {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "CustomEventsFilterBreakdown#CreateEventAnalysisWithDateAttributeFilterAllCondition";
 
 		var attributeName = "pageTitle";
@@ -924,6 +927,7 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10277 | Test Summary: Event Analysis creation with Filtered Attribute (Number) and (Is greater than/Is less than/Is between) condition"
 	@priority = "3"
 	test CreateEventAnalysisWithNumberAttributeFilterAllCondition {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "CustomEventsFilterBreakdown#CreateEventAnalysisWithNumberAttributeFilterAllCondition";
 
 		var attributeName = "pageTitle";
