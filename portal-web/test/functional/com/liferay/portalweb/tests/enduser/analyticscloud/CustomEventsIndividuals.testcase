@@ -188,6 +188,7 @@ definition {
 	@priority = "3"
 	test AssertEmptyIndividualEvents {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 
 		task ("Fill fields and create custom event") {
 			var customEventName1 = ACCustomEvents.generateCustomEventName();
