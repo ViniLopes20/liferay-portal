@@ -873,6 +873,8 @@ definition {
 	@description = "Feature ID: LRAC-6280 | Automation ID: LRAC-10566 | Test Summary: Empty state of analysis report"
 	@priority = "2"
 	test CheckEmptyStateOfAnalysisReport {
+		property portal.upstream = "vini";
+
 		task ("Switch the property in AC and go to event analysis") {
 			ACUtils.launchAC();
 
@@ -882,7 +884,7 @@ definition {
 		}
 
 		task ("Check that the empty page message and check the hyperlink taking user to event analysis document") {
-			ACUtils.viewGenericText(textValueList = "There are no analysis found.,Create a analysis to get started.,Access our documentation to learn more.");
+			ACUtils.viewGenericText(textValueList = "There are no analysis found.,Create an analysis to get started.,Access our documentation to learn more.");
 
 			ACUtils.clickGenericHyperlink(hyperlinkText = "Access our documentation to learn more.");
 
