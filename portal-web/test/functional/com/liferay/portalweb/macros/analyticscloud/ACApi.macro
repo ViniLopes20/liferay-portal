@@ -11,6 +11,12 @@ definition {
 	}
 
 	macro getTokenValue {
+		if (IsElementNotPresent(key_buttonName = "Generate Token", locator1 = "ACUtils#GENERIC_BUTTON")) {
+			ACUtils.clickAnyButton(button = "Revoke");
+
+			ACUtils.clickAnyButton(button = "Continue");
+		}
+
 		ACUtils.clickAnyButton(button = "Generate Token");
 
 		// Use getAttribute to get the token value from the page's HTML
