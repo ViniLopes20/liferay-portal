@@ -42,6 +42,8 @@ definition {
 	@description = "Feature ID: LRAC-10833 | Automation ID: LRAC-11103 | Test Summary: There is no previous export process for the same type and date range"
 	@priority = "4"
 	test CreateNewScheduledExportProcess {
+		property portal.upstream = "vini";
+
 		var startDate = "1905-05-13";
 		var startTime = "11:45:00.000";
 		var endDate = "2022-05-13";
