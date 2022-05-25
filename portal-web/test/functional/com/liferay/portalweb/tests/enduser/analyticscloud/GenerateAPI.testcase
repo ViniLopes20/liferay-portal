@@ -171,6 +171,8 @@ definition {
 	@description = "Feature ID: LRAC-10833 | Automation ID: LRAC-11106 | Test Summary: The request command has the wrong date format"
 	@priority = "3"
 	test RequestCommandHasWrongDateFormat {
+		property portal.upstream = "vini";
+
 		var startDate = "2022-02-01";
 		var endDate = "2022-05-16";
 		var type = "page";
@@ -201,6 +203,8 @@ definition {
 	@description = "Feature ID: LRAC-10833 | Automation ID: LRAC-11105 | Test Summary: The request command does not contain 'fromDate' or 'toDate'"
 	@priority = "3"
 	test RequestCommandNotContainFromDateOrToDate {
+		property portal.upstream = "vini";
+
 		var startDate = "1964-07-09";
 		var startTime = "15:36:00.000";
 		var endDate = "2017-06-15";
