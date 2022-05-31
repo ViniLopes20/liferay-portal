@@ -1312,6 +1312,7 @@ definition {
 	@description = "Feature ID: LRAC-10405 | Automation ID: LRAC-11117 | Test Summary: Empty state Sites page with data source and property no data"
 	@priority = "2"
 	test CheckAllSitesMessagesWhenHasPropertyAndDataSourceButNoData {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "EmptyState#CheckAllSitesMessagesWhenHasPropertyAndDataSourceButNoData";
 
 		task ("Close the onboarding modal") {
