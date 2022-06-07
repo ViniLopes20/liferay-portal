@@ -55,6 +55,7 @@ definition {
 	@priority = "3"
 	test CheckDeleteBrowserStorageChangesUserId {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {
@@ -374,6 +375,7 @@ definition {
 	@priority = "5"
 	test CheckLoginNewUserChangesUserId {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add two new users") {
@@ -514,6 +516,7 @@ definition {
 	@priority = "3"
 	test CheckLoginSameUserKeepUserId {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {
@@ -622,6 +625,7 @@ definition {
 	@priority = "4"
 	test CheckLogoutContinuesToTrackUserWithSameUserId {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {
