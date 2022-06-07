@@ -390,6 +390,14 @@ definition {
 		}
 	}
 
+	macro clearLocalStorage {
+		var javaScript = '''
+		localStorage.clear();
+		''';
+
+		var localStorageItem = selenium.getEval("${javaScript}");
+	}
+
 	macro clearSearchBar {
 		Click(locator1 = "ACUtils#CLEAR_SEARCH_BAR_BUTTON");
 	}
