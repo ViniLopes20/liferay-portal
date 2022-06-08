@@ -869,6 +869,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8869 | Test Summary: Check tabFocused fires once the tab is active and check its properties (see reference document in comments)"
 	@priority = "5"
 	test CheckTabFocusedOnceTabIsActive {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get site assigned property name and get data source name") {
@@ -918,7 +919,7 @@ definition {
 		}
 
 		task ("Switch to the previous tab") {
-			SelectWindow(locator1 = "title=AC Page - Site Name - ${dataSource}");
+			SelectWindow(locator1 = "title=AC Page - Site Name - Liferay DXP");
 		}
 
 		task ("Wait for sending requests") {
