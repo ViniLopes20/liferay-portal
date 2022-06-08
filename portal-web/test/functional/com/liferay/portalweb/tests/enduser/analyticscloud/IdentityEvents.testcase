@@ -103,6 +103,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8714 | Test Summary: Check Identity is triggered when logging out and in again"
 	@priority = "3"
 	test CheckIdentityTriggeredWhenLogoutAndLoginAgain {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
