@@ -183,6 +183,8 @@ definition {
 	@description = "Feature ID: LRAC-10747 | Automation ID: LRAC-11378 | Test Summary: Delete Custom Events description"
 	@priority = "3"
 	test CanDeleteCustomEventDescription {
+		property portal.upstream = "vini";
+
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
 
