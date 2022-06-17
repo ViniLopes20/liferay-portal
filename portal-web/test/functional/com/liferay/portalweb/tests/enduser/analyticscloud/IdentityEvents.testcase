@@ -203,6 +203,7 @@ definition {
 	@description = "Feature ID: LRAC-10998 | Automation ID: LRAC-11382 | Test Summary: Check that the Identify event is not resent if the user stays logged in for less than 7 days"
 	@priority = "3"
 	test CheckIdentityEventNotResentIfUserStaysLoggedForLessThan7days {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {
@@ -301,6 +302,7 @@ definition {
 	@description = "Feature ID: LRAC-10998 | Automation ID: LRAC-11381 | Test Summary: Check that the Identify event is resent if the user stays logged in for more than 7 days and check if the same individual has not been counted twice when the event is resent"
 	@priority = "5"
 	test CheckIdentityEventResentIfUserStaysLoggedForMoreThan7days {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {
