@@ -1281,6 +1281,7 @@ definition {
 	@priority = "3"
 	test CanPaginateStaticSegmentAddMembers {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "SegmentsCreation#CanPaginateStaticSegmentAddMembers";
 
 		var usernameList = "user1,user2,user3,user4,user5";

@@ -70,6 +70,7 @@ definition {
 	@description = "Search for specific segment"
 	@priority = "5"
 	test CanSearchForSegment {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "SegmentsList#CanSearchForSegment";
 
 		task ("Switch the property in AC") {
@@ -118,6 +119,7 @@ definition {
 	@description = "Segment list shows a list of segments"
 	@priority = "5"
 	test CanShowSegmentList {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "SegmentsList#CanShowSegmentList";
 
 		task ("Switch the property in AC") {
