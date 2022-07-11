@@ -397,6 +397,8 @@ definition {
 	@description = "Bug: LRAC-11423 | Automation ID: LRAC-11475 | Test Summary: Check if it is possible to connect AC with DXP using an existing data source"
 	@priority = "4"
 	test CheckIfIsPossibleToReconnectACWithDXP {
+		property portal.upstream = "vini";
+
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud();
 		}
