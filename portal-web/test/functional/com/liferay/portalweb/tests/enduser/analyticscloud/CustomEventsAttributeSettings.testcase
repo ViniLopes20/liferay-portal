@@ -80,7 +80,9 @@ definition {
 	@description = "Bug: LRAC-11366 | Automation ID: LRAC-11433 | Test Summary: Delete attribute description"
 	@priority = "3"
 	test CanDeleteAttributeDescription {
-		var attributeName = "birthdate";
+		property portal.upstream = "vini";
+
+		var attributeName = "price";
 
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
