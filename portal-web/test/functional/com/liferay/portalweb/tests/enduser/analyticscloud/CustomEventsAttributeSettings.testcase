@@ -82,7 +82,7 @@ definition {
 	test CanDeleteAttributeDescription {
 		property portal.upstream = "vini";
 
-		var attributeName = "price";
+		var attributeName = "birthdate";
 
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
