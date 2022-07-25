@@ -593,6 +593,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-11508 | Test Summary: Check Blog Rating show expected value"
 	@priority = "4"
 	test CheckBlogRatingShowExpectedValue {
+		property portal.upstream = "vini";
+
 		task ("Connect the DXP to AC") {
 			ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
 		}
