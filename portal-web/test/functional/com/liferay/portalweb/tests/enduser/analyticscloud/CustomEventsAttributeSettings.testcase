@@ -451,6 +451,8 @@ definition {
 	@description = "Feature ID: LRAC-4265 | Automation ID: LRAC-10017 | Test Summary: Search for Attributes"
 	@priority = "3"
 	test SearchForAttribute {
+		property portal.upstream = "vini";
+
 		var attributesNameList = "category,price,temp,birthdate,like,duration";
 
 		task ("Fill fields and create custom event") {
