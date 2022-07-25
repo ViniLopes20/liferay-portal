@@ -80,6 +80,8 @@ definition {
 	@description = "Feature ID: LRAC-7346 | Automation ID: LRAC-10195 | Test Summary: Unblock single custom event and unblock custom events in bulk"
 	@priority = "5"
 	test CanUnblockCustomEvent {
+		property portal.upstream = "vini";
+
 		task ("Fill fields and create 3 custom events") {
 			var customEventName1 = ACCustomEvents.generateCustomEventName();
 
@@ -157,7 +159,7 @@ definition {
 		task ("Unblock all custom events") {
 			ACCustomEvents.unblockAllCustomEvents();
 
-			ACUtils.viewNoResultsMessage(noResultMessage = "No blocked events to report.");
+			ACUtils.viewNoResultsMessage(noResultMessage = "There are no events blocked.");
 		}
 
 		task ("Navigation to custom events tab") {

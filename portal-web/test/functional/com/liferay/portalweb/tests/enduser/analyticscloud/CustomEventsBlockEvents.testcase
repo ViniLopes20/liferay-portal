@@ -80,6 +80,8 @@ definition {
 	@description = "Feature ID: LRAC-7346 | Automation ID: LRAC-10147 | Test Summary: Block single custom event and block custom events in bulk"
 	@priority = "5"
 	test CanBlockCustomEvent {
+		property portal.upstream = "vini";
+
 		task ("Fill fields and create 3 custom events") {
 			var customEventName1 = ACCustomEvents.generateCustomEventName();
 
@@ -149,7 +151,7 @@ definition {
 		task ("Block all custom events") {
 			ACCustomEvents.blockAllCustomEvents();
 
-			ACUtils.viewNoResultsMessage(noResultMessage = "Create some custom events");
+			ACUtils.viewNoResultsMessage(noResultMessage = "No Custom Events Found");
 		}
 
 		task ("Navigation to block custom event list") {
