@@ -81,6 +81,8 @@ definition {
 	@description = "Feature ID: LRAC-8103 | Automation ID: LRAC-11502 | Test Summary: Assert the user is able to query data using Analytics Cloud API"
 	@priority = "3"
 	test CreateQueryDataWithAnalyticsCloudAPI {
+		property portal.upstream = "vini";
+
 		var typeList = "accounts,blogs,documents-and-media,forms,individuals,pages,segments,web-contents";
 
 		task ("Get the token value to create the schedule") {
