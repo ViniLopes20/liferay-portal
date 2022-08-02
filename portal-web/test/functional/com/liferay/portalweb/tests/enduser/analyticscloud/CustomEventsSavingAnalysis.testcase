@@ -294,6 +294,8 @@ definition {
 	@description = "Feature ID: LRAC-6280 | Automation ID: LRAC-10558 | Test Summary: Viewing newly created analysis report"
 	@priority = "5"
 	test CanCreateAnalysisReport {
+		property portal.upstream = "true";
+
 		var attributeNameList = "category,url";
 		var filterName = "like";
 
