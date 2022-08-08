@@ -320,6 +320,8 @@ definition {
 	@description = "Bug: LRAC-9589 | Automation ID: LRAC-11541 | Test Summary: Check that the vote and posted events appear as a default event"
 	@priority = "2"
 	test CheckVoteAndPostedEventsAppearLikeDefaultEvent {
+		property portal.upstream = "vini";
+
 		var layoutName = "DM Page";
 		var defaultEventNameList = "VOTE,posted";
 
