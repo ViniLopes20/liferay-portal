@@ -270,6 +270,7 @@ definition {
 	@description = "Story: LRAC-10998 | Automation ID: LRAC-11380 | Test Summary: Check that the Identify event is not sent every time the user interacts with the site"
 	@priority = "3"
 	test CheckIdentityEventNotTriggeredAlwaysUserInteractsWithSite {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {
