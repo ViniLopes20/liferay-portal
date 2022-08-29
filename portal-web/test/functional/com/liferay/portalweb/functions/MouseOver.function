@@ -50,6 +50,20 @@ definition {
 		selenium.assertLiferayErrors();
 	}
 
+	function mouseUp {
+		WaitForSPARefresh();
+
+		selenium.waitForElementPresent();
+
+		selenium.waitForVisible();
+
+		selenium.mouseUp();
+
+		selenium.assertJavaScriptErrors();
+
+		selenium.assertLiferayErrors();
+	}
+
 	function waitForMenuToggleJSMouseOver {
 		WaitForSPARefresh();
 
