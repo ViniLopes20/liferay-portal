@@ -283,6 +283,8 @@ definition {
 	@description = "Bug ID: LRAC-11659 | Automation ID: LRAC-11726 | Test Summary: Check Default Events Counted as Default when event sent by console"
 	@priority = "5"
 	test CheckDefaultEventsCountedAsDefaultWhenEventSentByConsole {
+		property portal.upstream = "vini";
+
 		var layoutName = "Custom Asset";
 		var disableAttributesList = "assetId,canonicalUrl,category,pageDescription,pageKeywords,pageTitle,title,referrer,url";
 		var eventName = "assetViewed";
