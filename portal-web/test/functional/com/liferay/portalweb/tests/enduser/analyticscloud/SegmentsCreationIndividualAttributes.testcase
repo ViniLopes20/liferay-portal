@@ -648,6 +648,7 @@ definition {
 	@priority = "4"
 	test CanAddSegmentWithCustomFieldThatUsesList {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "SegmentsCreationIndividualAttributes#CanAddSegmentWithCustomFieldThatUsesList";
 
 		var customFieldDropdown = "user custom field dropdown";
