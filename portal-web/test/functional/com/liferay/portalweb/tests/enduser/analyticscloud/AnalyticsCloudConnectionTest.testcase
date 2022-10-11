@@ -300,6 +300,8 @@ definition {
 	@description = "Automation ID: LRAC-8836 | Test Summary: Cancel Creating a DXP Data Source"
 	@priority = "3"
 	test CancelCreatingDxpDataSource {
+		property portal.upstream = "vini";
+
 		task ("Access the data sources, select Liferay DXP and click the cancel button") {
 			ACUtils.launchAC();
 
