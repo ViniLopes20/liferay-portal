@@ -395,6 +395,7 @@ definition {
 	@description = "Feature ID: LRAC-9248 | Automation ID: LRAC-10727 | Test Summary: Empty state of pages with no data source and no property"
 	@priority = "2"
 	test CheckAllMessagesRelatedToSettings {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "EmptyState#CheckAllMessagesRelatedToSettings";
 
 		task ("Close the onboarding modal") {
@@ -789,6 +790,7 @@ definition {
 	@description = "Feature ID: LRAC-10403 | Automation ID: LRAC-10740 | Test Summary: Empty state of pages without data source and with property"
 	@priority = "2"
 	test CheckAllMessageWhenHasPropertyNoDataSource {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "EmptyState#CheckAllMessageWhenHasPropertyNoDataSource";
 
 		// Accounts and Salesforce tests are no longer possible to run after this one from LRAC-11571
