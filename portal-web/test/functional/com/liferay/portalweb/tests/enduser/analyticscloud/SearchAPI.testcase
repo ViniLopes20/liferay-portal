@@ -153,6 +153,8 @@ definition {
 	@description = "Feature ID: LRAC-12058 | Automation ID: LRAC-12146 | Test Summary: Fetch keywords with size parameter "
 	@priority = "3"
 	test RequestKeywordsUsingSize {
+		property portal.upstream = "vini";
+
 		var keyword1 = "with size parameters 1";
 		var keyword2 = "with size parameters 2";
 		var keyword3 = "with size parameters 3";
