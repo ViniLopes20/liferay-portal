@@ -44,12 +44,9 @@ definition {
 	@description = "Feature ID: LRAC-12058 | Automation ID: LRAC-12141 | Test Summary: Request search keywords using all parameters"
 	@priority = "3"
 	test RequestKeywordsUsingAllParameters {
-		var displayLanguageId = "en-US";
 		var groupId = JSONGroupSetter.setGroupId(groupName = "Guest");
 		var keyword = "all parameters";
-		var page = "0";
-		var size = "10";
-		var sort = "counts,desc";
+		var parameters = "size=10&displayLanguageId=en-US&page=0&groupId=${groupId}&sort=counts,desc,lastModifiedDate,desc";
 
 		task ("Go to Server Administration") {
 			ServerAdministration.openServerAdmin();
@@ -79,14 +76,10 @@ definition {
 
 		task ("Run curl command to get keyword results") {
 			ACApi.getSearchKeywords(
-				displayLanguageId = "${displayLanguageId}",
 				faroBackendURL = "${faroBackendURL}",
-				groupId = "${groupId}",
 				osbAsahFaroBackendSS = "${osbAsahFaroBackendSS}",
 				osbAsahProjectId = "${osbAsahProjectId}",
-				page = "${page}",
-				size = "${size}",
-				sort = "${sort}");
+				parameters = "${parameters}");
 		}
 
 		task ("Assert response returns keyword") {
@@ -156,6 +149,7 @@ definition {
 		var keyword1 = "with size parameters 1";
 		var keyword2 = "with size parameters 2";
 		var keyword3 = "with size parameters 3";
+		var parameters = "size=2&sort=lastModifiedDate,desc";
 
 		var keywordList = "${keyword1},${keyword2},${keyword3}";
 		var size = "2";
@@ -193,7 +187,7 @@ definition {
 				faroBackendURL = "${faroBackendURL}",
 				osbAsahFaroBackendSS = "${osbAsahFaroBackendSS}",
 				osbAsahProjectId = "${osbAsahProjectId}",
-				size = "${size}");
+				parameters = "${parameters}");
 		}
 
 		task ("Assert response returns keyword") {
