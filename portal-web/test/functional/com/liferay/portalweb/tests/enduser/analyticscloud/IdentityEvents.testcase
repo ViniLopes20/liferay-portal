@@ -204,6 +204,7 @@ definition {
 	@priority = "3"
 	test CheckEventSentWhenUserInteractsWithSitesWithDifferentChannelId {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		var sitePageName = "AC Test";
@@ -540,6 +541,7 @@ definition {
 	@priority = "5"
 	test CheckIfEventSentAgainAfterLoginAndIfUserClassifiedAsKnownIndividual {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {
@@ -684,6 +686,7 @@ definition {
 	@priority = "5"
 	test CheckIfEventSentWithoutLoginAndIfUserClassifiedAsAnonymous {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Start Har recording") {
@@ -977,6 +980,7 @@ definition {
 	@priority = "5"
 	test NewUserChangeEmailAddressHashed {
 		property analytics.cloud.upstream = "false";
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		var usernameList = "user1,user2";
