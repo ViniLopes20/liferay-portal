@@ -328,6 +328,8 @@ definition {
 	@description = "Bug: LRAC-11903 | Automation ID: LRAC-12355 | Test Summary: Set time zone for existing workspace and validade that the events are shown in the activities card according to the new time zone"
 	@priority = "4"
 	test ViewEventChangedInActivitiesCardAfterChangeTimeZone {
+		property portal.upstream = "vini";
+
 		task ("Copy the token from AC") {
 			ACSettings.takeTokenFromAnalyticsCloud();
 		}
