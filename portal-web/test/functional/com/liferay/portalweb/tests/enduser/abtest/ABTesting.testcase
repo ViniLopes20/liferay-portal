@@ -778,6 +778,7 @@ definition {
 	@description = "LPS-96781: Validate if, when the A/B Testing changes in the Liferay DXP, information about the Liferay DXP context, the changes are reflected in the test in Analytics Cloud"
 	@priority = 4
 	test CheckTestChangesInAC {
+		property portal.upstream = "vini";
 		property test.name.skip.portal.instance = "ABTesting#CheckTestChangesInAC";
 
 		task ("Create AB test, create variant and run the test") {
