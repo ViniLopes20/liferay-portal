@@ -252,6 +252,8 @@ definition {
 	@description = "Bug: LRAC-12694 | Automation ID: LRAC-12811 | Test Summary: Known Individuals is not duplicated if user exists in multiple properties"
 	@priority = 3
 	test IndividualNotDuplicatedIfUserExistsInMultipleProperties {
+		property portal.upstream = "vini";
+
 		var propertyName1 = ${assignedPropertyName};
 
 		task ("View the site page with new user to the first property") {
