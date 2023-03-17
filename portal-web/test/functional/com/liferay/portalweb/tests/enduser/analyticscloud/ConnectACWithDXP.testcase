@@ -173,6 +173,8 @@ definition {
 	@description = "Story: LRAC-11860 | Automation ID: LRAC-12440 | Test Summary: Connect AC Token Authentication Fails"
 	@priority = 5
 	test CheckUnableConnectACWithInvalidToken {
+		property portal.upstream = "vini";
+
 		task ("Go to Instance Settings > Analytics Cloud") {
 			ACDXPSettings.goToInstanceSettingsAC();
 		}
