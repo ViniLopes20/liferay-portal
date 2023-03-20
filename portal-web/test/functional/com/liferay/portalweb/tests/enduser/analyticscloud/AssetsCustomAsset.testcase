@@ -129,6 +129,7 @@ definition {
 	@description = "Feature ID: LRAC-7532 | Automation ID: LRAC-8539 | Test Summary: Create multiple custom asset report"
 	@priority = 5
 	test CanCreateMultipleCustomAssetReport {
+		property portal.upstream = "vini";
 		property portal.acceptance = "true";
 		property portal.release = "true";
 
