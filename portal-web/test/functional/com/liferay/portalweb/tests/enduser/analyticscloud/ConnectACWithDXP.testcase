@@ -173,6 +173,8 @@ definition {
 	@description = "Story: LRAC-11860 | Automation ID: LRAC-12440 | Test Summary: Connect AC Token Authentication Fails"
 	@priority = 5
 	test CheckUnableConnectACWithInvalidToken {
+		property portal.upstream = "vini";
+
 		task ("Go to Instance Settings > Analytics Cloud") {
 			ACDXPSettings.goToInstanceSettingsAC();
 		}
@@ -188,11 +190,9 @@ definition {
 		}
 
 		task ("Check that the connection is not made and an error message appears") {
-			ACDXPSettings.NavigateBetweenWizardSteps(wizardStepName = "Connect");
-
 			AssertElementNotPresent(locator1 = "Message#SUCCESS");
 
-			Alert.viewErrorMessage(errorMessage = "An unexpected system error occurred.");
+			Alert.viewErrorMessage(errorMessage = "Token is not valid. Please insert a valid Analytics Cloud token.");
 		}
 	}
 
