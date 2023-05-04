@@ -39,6 +39,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>WORKSPACE_UNAVAILABLE</td>
+	<td>//div[@text-danger='workspace-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>WORKSPACE_TEMPORARILY_UNAVAILABLE</td>
+	<td>//h1[@class='title' and text()='Service Temporarily Unavailable']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>FARO_DEMO_WORKSPACE</td>
 	<td>//*[contains(@class, 'workspace-link')]</td>
 	<td></td>

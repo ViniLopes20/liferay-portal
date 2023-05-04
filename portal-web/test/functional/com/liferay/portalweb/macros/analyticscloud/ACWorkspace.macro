@@ -189,4 +189,12 @@ definition {
 		}
 	}
 
+	macro waitUntilWorkspaceUnavaibleMessageIsNotPresent {
+		WaitForPageLoad();
+
+		while ((IsElementNotPresent(locator1 = "ACWorkspace#WORKSPACE_UNAVAILABLE")) || (IsElementNotPresent(locator1 = "ACWorkspace#WORKSPACE_TEMPORARILY_UNAVAILABLE"))) {
+			TestUtils.hardRefresh();
+		}
+	}
+
 }
