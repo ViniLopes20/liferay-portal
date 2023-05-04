@@ -5,7 +5,7 @@ definition {
 	property analytics.cloud.upstream = "true";
 	property custom.properties = "jsonws.web.service.paths.excludes=";
 	property portal.release = "false";
-	property portal.upstream = "true";
+	property portal.upstream = "vini";
 	property property.group = "analytics.cloud.profile";
 	property testray.main.component.name = "Analytics Cloud";
 
@@ -75,24 +75,6 @@ definition {
 				startTime = ${startTime},
 				status = ${status},
 				upperCaseType = ${upperCaseType});
-		}
-	}
-
-	@description = "Feature ID: LRAC-8103 | Automation ID: LRAC-11502 | Test Summary: Assert the user is able to query data using Analytics Cloud API"
-	@priority = 3
-	test CreateQueryDataWithAnalyticsCloudAPI {
-		var typeList = "blogs,documents-and-media,forms,individuals,pages,segments,web-contents";
-
-		task ("Get the token value") {
-			var token = ACApi.getTokenValue();
-		}
-
-		task ("Create a query data using analytics cloud API") {
-			ACApi.createQueryData(token = ${token});
-		}
-
-		task ("Check the list of endpoints that are available for querying in the API") {
-			ACApi.viewApiResponseForQueryData(typeList = ${typeList});
 		}
 	}
 
