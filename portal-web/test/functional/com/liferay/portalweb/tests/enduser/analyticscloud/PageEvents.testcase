@@ -269,6 +269,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8808 | Test Summary: Check pageDepthReached trigggers ([depth] = 100) and check its properties (see reference document in comments)"
 	@priority = 5
 	test CheckPageDepthReachedTo100 {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a Blogs widget to page") {
@@ -300,10 +301,6 @@ definition {
 			var dataSourceName = StringUtil.trim(${dataSourceName});
 
 			var expectedDataSourceId = ACSettings.getDXPInstanceId(dataSourceName = ${dataSourceName});
-		}
-
-		task ("Sign in as Test Test") {
-			ACUtils.launchDXP();
 		}
 
 		task ("Navigate to the site page") {
@@ -342,6 +339,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8871 | Test Summary: Check pageDepthReached events trigger when scrolling the page by hitting the Page Dn or the Down arrow keys"
 	@priority = 3
 	test CheckPageDepthReachedWhenPressPageDownKey {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a Blogs widget to page") {
@@ -373,10 +371,6 @@ definition {
 			var dataSourceName = StringUtil.trim(${dataSourceName});
 
 			var expectedDataSourceId = ACSettings.getDXPInstanceId(dataSourceName = ${dataSourceName});
-		}
-
-		task ("Sign in as Test Test") {
-			ACUtils.launchDXP();
 		}
 
 		task ("Navigate to the site page") {
