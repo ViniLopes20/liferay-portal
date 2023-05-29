@@ -54,7 +54,7 @@ definition {
 	test CanSearchForChannelsAndSitesOnAssignedPropertyModal {
 		var foundChannelName = "Minium Demo Portal";
 		var notFoundChannelName = "AC Search Channel";
-		var foundSitesName = "Minium Demo";
+		var foundSitesName = " Demo";
 		var notFoundSitesName = "Name";
 
 		task ("Create a new channel") {
