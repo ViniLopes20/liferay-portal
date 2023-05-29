@@ -53,7 +53,7 @@ definition {
 	@priority = 4
 	test CanSearchForChannelsAndSitesOnAssignedPropertyModal {
 		var foundChannelName = "Minium Demo Portal";
-		var notFoundChannelName = "AC Search Channel";
+		var notFoundChannelName = "AC";
 		var foundSitesName = " Demo";
 		var notFoundSitesName = "Name";
 
