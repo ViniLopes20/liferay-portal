@@ -52,7 +52,7 @@ definition {
 	@description = "Story: LRAC-10858 | Automation ID: LRAC-12579 | Test Summary: Can search for channels and sites on assigned property modal"
 	@priority = 4
 	test CanSearchForChannelsAndSitesOnAssignedPropertyModal {
-		var foundChannelName = " Demo Portal";
+		var foundChannelName = " Demo";
 		var notFoundChannelName = "AC";
 		var foundSitesName = " Demo";
 		var notFoundSitesName = "Name";
