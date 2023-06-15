@@ -1746,7 +1746,7 @@ definition {
 		}
 
 		task ("Check that only one segment is present in the list") {
-			ACUtils.viewResultsMessage(results = "Showing 1 to 1 of 1 entries.");
+			ACUtils.viewResultsMessage(results = "Showing 1 to 1 of 1 entry.");
 		}
 
 		task ("Add a new static segment") {
@@ -1856,7 +1856,7 @@ definition {
 		}
 
 		task ("Check that only one segment is present in the list") {
-			ACUtils.viewResultsMessage(results = "Showing 1 to 1 of 1 entries.");
+			ACUtils.viewResultsMessage(results = "Showing 1 to 1 of 1 entry.");
 		}
 
 		task ("Add a new dynamic segment") {
