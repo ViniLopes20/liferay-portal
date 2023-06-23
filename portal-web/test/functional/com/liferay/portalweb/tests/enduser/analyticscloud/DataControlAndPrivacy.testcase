@@ -208,6 +208,7 @@ definition {
 	@description = "Automation ID: LRAC-8109 | Test Summary: Create Suppress Request"
 	@priority = 5
 	test CanCreateSuppressRequest {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var userEmail = "dcp3@liferay.com";
