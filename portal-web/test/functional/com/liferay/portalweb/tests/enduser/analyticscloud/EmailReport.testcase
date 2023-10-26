@@ -345,9 +345,7 @@ definition {
 		var emailAddress = "test@liferay.com";
 
 		task ("Launch AC") {
-			var analyticsCloudURL = PropsUtil.get("analytics.cloud.url");
-
-			Open(locator1 = ${analyticsCloudURL});
+			ACUtils.launchAC();
 		}
 
 		task ("Go to admin page") {
