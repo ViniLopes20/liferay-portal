@@ -1,5 +1,17 @@
 definition {
 
+	macro changeACUserPassword {
+		var analyticsCloudURL = PropsUtil.get("analytics.cloud.url");
+
+		User.openUsersAdmin(baseURL = ${analyticsCloudURL});
+
+		UserNavigator.gotoUser(userScreenName = ${userScreenName});
+
+		UserNavigator.gotoPassword();
+
+		User.resetPassword();
+	}
+
 	macro configureMailSettings {
 		ACAdmin.goToServerAdministration();
 
@@ -88,18 +100,6 @@ definition {
 				ACAdmin.changeACUserPassword(userScreenName = ${userScreenNameToResetPassword});
 			}
 		}
-	}
-
-	macro changeACUserPassword {
-		var analyticsCloudURL = PropsUtil.get("analytics.cloud.url");
-
-		User.openUsersAdmin(baseURL = ${analyticsCloudURL});
-
-		UserNavigator.gotoUser(userScreenName = ${userScreenName});
-
-		UserNavigator.gotoPassword();
-
-		User.resetPassword();
 	}
 
 	macro goToServerAdministration {
