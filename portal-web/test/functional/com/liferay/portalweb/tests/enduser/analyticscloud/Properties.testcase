@@ -496,6 +496,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8145 | Test Summary: Owner can create a new property"
 	@priority = 5
 	test OwnerCanCreateNewProperty {
+		property portal.upstream = "vini";
+
 		ACUtils.launchAC();
 
 		ACNavigation.goToSettings();

@@ -879,6 +879,8 @@ definition {
 	@description = "Feature ID: LRAC-6280 | Automation ID: LRAC-10569 | Test Summary: Viewing the newly created analysis report with member permission"
 	@priority = 4
 	test UserWithMemberPermissionCanViewAndCreateAnalysisReport {
+		property portal.upstream = "vini";
+
 		var attributeName = "category";
 		var filterName = "like";
 		var defaultEventName = "webContentViewed";

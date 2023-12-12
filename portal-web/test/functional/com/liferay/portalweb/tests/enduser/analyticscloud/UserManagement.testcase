@@ -31,6 +31,8 @@ definition {
 	@description = "Automation ID: LRAC-9093 | Test Summary: Admin can add data sources"
 	@priority = 4
 	test AdminCanAddDataSources {
+		property portal.upstream = "vini";
+
 		task ("Logout AC and login as an admin user") {
 			ACWorkspace.signOut();
 
@@ -79,6 +81,8 @@ definition {
 	@description = "Automation ID: LRAC-9095 | Test Summary: Admin can change user permissions"
 	@priority = 3
 	test AdminCanChangeUserPermissions {
+		property portal.upstream = "vini";
+
 		task ("SingOut and Login as administrator") {
 			ACWorkspace.signOut();
 
@@ -378,6 +382,8 @@ definition {
 	@description = "Automation ID: LRAC-9096 | Test Summary: Member cannot add data sources"
 	@priority = 4
 	test MemberCannotAddDataSources {
+		property portal.upstream = "vini";
+
 		task ("Login as user with member role") {
 			ACWorkspace.signOut();
 
@@ -402,6 +408,8 @@ definition {
 	@description = "Automation ID: LRAC-9098 | Test Summary: Member cannot change user permissions"
 	@priority = 4
 	test MemberCannotChangeUserPermissions {
+		property portal.upstream = "vini";
+
 		task ("Go to AC and Login as user with member role") {
 			ACWorkspace.signOut();
 
@@ -426,6 +434,8 @@ definition {
 	@description = "Automation ID: LRAC-9097 | Test Summary: Member cannot remove data sources"
 	@priority = 4
 	test MemberCannotRemoveDataSources {
+		property portal.upstream = "vini";
+
 		task ("Connect DXP to AC") {
 			ACSettings.takeTokenFromAnalyticsCloud();
 
@@ -468,6 +478,8 @@ definition {
 	@description = "Automation ID: LRAC-9083 | Test Summary: [AC] Only admin or owner users are able to add properties on AC"
 	@priority = 3
 	test OnlyAdminOrOwnerUsersCanAddPropertiesOnAC {
+		property portal.upstream = "vini";
+
 		var userList = "michelle.hoshi@faro.io,bryan.cheung@faro.io";
 
 		for (var userEmail : list ${userList}) {
@@ -523,6 +535,8 @@ definition {
 	@description = "Automation ID: LRAC-9090 | Test Summary: Owner can add data sources"
 	@priority = 5
 	test OwnerCanAddDataSources {
+		property portal.upstream = "vini";
+
 		task ("Logout AC and login as an owner user") {
 			ACWorkspace.signOut();
 
@@ -571,6 +585,8 @@ definition {
 	@description = "Automation ID: LRAC-9092 | Test Summary: Owner can change user permissions"
 	@priority = 5
 	test OwnerCanChangeUserPermissions {
+		property portal.upstream = "vini";
+
 		var userEmail = "ac@liferay.com";
 
 		task ("Login with another Owner User") {
@@ -750,6 +766,8 @@ definition {
 	@description = "Automation ID: LRAC-9082 | Test Summary: A user lost access to a given property (because the admin removed the user's access of the system)"
 	@priority = 3
 	test UserLostAccessToProperty {
+		property portal.upstream = "vini";
+
 		task ("Go to settings then go to properties") {
 			ACNavigation.goToSettings();
 
@@ -960,6 +978,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8143 | Test Summary: Owner can delete users"
 	@priority = 5
 	test ViewOwnerCanDeleteUser {
+		property portal.upstream = "vini";
+
 		ACWorkspace.signOut();
 
 		ACLogin.loginAs(
