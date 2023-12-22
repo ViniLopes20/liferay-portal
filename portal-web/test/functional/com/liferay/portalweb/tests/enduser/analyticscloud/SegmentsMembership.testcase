@@ -427,6 +427,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8519 | Test Summary: Search a Dynamic Segment's Membership Preview Modal"
 	@priority = 3
 	test SearchDynamicSegmentsMembershipPreviewModal {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var emailList = "user1@liferay.com,user2@liferay.com,user3@liferay.com";
