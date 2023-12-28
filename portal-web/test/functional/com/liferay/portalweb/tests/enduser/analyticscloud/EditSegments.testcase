@@ -714,6 +714,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8590 | Test Summary: Undo Adding a Segment Member in the Edit Modal"
 	@priority = 4
 	test UndoAddingSegmentMemberInTheEditModal {
+		property portal.upstream = "vini";
+
 		var usernameList = "ac,liferay";
 		var emailList = "ac@liferay.com,liferay@liferay.com";
 
@@ -860,6 +862,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8593 | Test Summary: Undo Deleting a Segment Member in the Edit Modal"
 	@priority = 4
 	test UndoDeletingASegmentMemberInTheEditModal {
+		property portal.upstream = "vini";
+
 		var users = "ac,liferay";
 		var emailList = "ac@liferay.com,liferay@liferay.com";
 		var nameList = "ac ac,liferay liferay";

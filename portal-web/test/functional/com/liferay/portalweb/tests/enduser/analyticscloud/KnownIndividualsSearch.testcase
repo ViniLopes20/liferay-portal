@@ -317,6 +317,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9033 | Test Summary: Case Insensitive Search"
 	@priority = 5
 	test CanCaseInsensitiveSearch {
+		property portal.upstream = "vini";
+
 		var emailList = "randy.smith@liferay.com,maria.rau@liferay.com";
 
 		task ("Add new users in DXP and sync the Contact Data") {
