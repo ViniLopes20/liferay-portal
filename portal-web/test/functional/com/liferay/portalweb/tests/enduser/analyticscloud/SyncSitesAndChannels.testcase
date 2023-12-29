@@ -446,6 +446,8 @@ definition {
 	@description = "Story: LRAC-10858 | Automation ID: LRAC-12580 | Test Summary: Check that it is possible to make pagination in the channels and sites tabs on assigned property modal"
 	@priority = 3
 	test MakePaginationInChannelsAndSitesTabsOnAssignedPropertyModal {
+		property portal.upstream = "vini";
+
 		var firstChannelsPageList = "AC Sort Channel 1,AC Sort Channel 2,AC Sort Channel 3,AC Sort Channel 4,AC Sort Channel 5";
 		var secondChannelsPageList = "Minium Portal";
 		var secondSitesPageList = "Site Name";
