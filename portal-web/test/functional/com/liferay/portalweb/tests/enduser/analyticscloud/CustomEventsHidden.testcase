@@ -119,6 +119,7 @@ definition {
 	@description = "Feature ID: LRAC-7865 | Automation ID: LRAC-10232 | Test Summary: Hide a default event and hide a custom event"
 	@priority = 5
 	test CanHideDefaultAndCustomEvent {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var defaultEventName = "assetDownloaded";
@@ -187,6 +188,9 @@ definition {
 	@description = "Feature ID: LRAC-7865 | Automation ID: LRAC-10235 | Test Summary: Search for a hidden event "
 	@priority = 3
 	test CanSearchForAHiddenEvent {
+		property portal.upstream = "vini";
+		property test.run.type = "single";
+
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
 
@@ -231,6 +235,7 @@ definition {
 	@description = "Feature ID: LRAC-7865 | Automation ID: LRAC-10233 | Test Summary: Unhide a default event and unhide a custom event"
 	@priority = 5
 	test CanUnhideDefaultAndCustomEvent {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var defaultEventName = "assetDepthReached";
@@ -307,6 +312,9 @@ definition {
 	@description = "Feature ID: LRAC-7865 | Automation ID: LRAC-10228 | Test Summary: Hidden default event and custom event should not be visible on the Event Analysis list"
 	@priority = 5
 	test CheckDefaultAndCustomEventIsNotVisibleOnEventAnalysisList {
+		property portal.upstream = "vini";
+		property test.run.type = "single";
+
 		var defaultEventName = "blogViewed";
 
 		task ("Fill fields and create custom event") {
@@ -449,6 +457,9 @@ definition {
 	@description = "Feature ID: LRAC-7865 | Automation ID: LRAC-10227 | Test Summary: Hidden custom event should not be visible on the Segment > Event criteria list"
 	@priority = 5
 	test ViewIfCustomEventIsNotVisibleOnSegmentEventCriteriaList {
+		property portal.upstream = "vini";
+		property test.run.type = "single";
+
 		task ("Fill fields and create custom event") {
 			var customEventName = ACCustomEvents.generateCustomEventName();
 

@@ -430,6 +430,9 @@ definition {
 	@description = "Feature ID: LRAC-6280 | Automation ID: LRAC-10560 | Test Summary: Delete an analysis report and Bulk delete analysis reports"
 	@priority = 5
 	test CanDeleteAnalysisReport {
+		property portal.upstream = "vini";
+		property test.run.type = "single";
+
 		var eventAnalysisNameList = "Save Analysis 1,Save Analysis 2,Save Analysis 3";
 
 		task ("Fill fields and create custom event") {
