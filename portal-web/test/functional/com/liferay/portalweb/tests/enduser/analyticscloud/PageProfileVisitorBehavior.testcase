@@ -66,6 +66,8 @@ definition {
 	@description = "Feature ID: LRAC-14813 | Automation ID: LRAC-14813 | Test Summary: Assert page view accuracy between cards Visitor Behavior, Audience, and Page List number"
 	@priority = 4
 	test AssertPageViewAccuracyBetweenCards {
+		property portal.upstream = "vini";
+
 		var metricNum = 1;
 
 		task ("Sign in as new user") {
