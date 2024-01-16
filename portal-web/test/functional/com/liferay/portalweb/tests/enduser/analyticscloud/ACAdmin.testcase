@@ -90,9 +90,24 @@ definition {
 			ACAdmin.goToACAdmin(userScreenNameToResetPassword = "test");
 		}
 
+		var canonicalURL = Navigator.getCurrentURL();
+
+		echo("AQUIIIIIIIIIIIIIIIII");
+		echo("${canonicalURL}");
+		echo("AQUIIIIIIIIIIIIIIIII");
+
+		AssertElementPresent(locator1 = "//*[contains(text(),'FARO-DEV-liferay')]");
+
 		task ("Navigate to users page") {
 			User.openUsersAdmin(baseURL = ${analyticsCloudURL});
 		}
+
+		var canonicalURL2 = Navigator.getCurrentURL();
+		echo("AQUIIIIIIIIIIIIIIIII2");
+		echo("${canonicalURL2}");
+		echo("AQUIIIIIIIIIIIIIIIII2");
+
+		AssertElementPresent(locator1 = "//*[contains(text(),'Test Test')]");
 
 		task ("Create a new user") {
 			LexiconEntry.gotoAdd();
