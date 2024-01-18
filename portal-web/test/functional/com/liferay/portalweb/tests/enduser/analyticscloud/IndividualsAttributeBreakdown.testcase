@@ -191,6 +191,8 @@ definition {
 	@description = "Bug: LRAC-11573 | Automation ID: LRAC-11825 | Test Summary: Check that the number of members shown in the chart is equal to the number of members shown in the chart's details sidebar"
 	@priority = 5
 	test DistributionChartShowsSameAmountOfMembersAsSidebar {
+		property portal.upstream = "vini";
+
 		var usernameList = "user1,user2";
 
 		task ("Add a new user") {
