@@ -518,6 +518,8 @@ definition {
 	@description = "Feature ID: LRAC-6280 | Automation ID: LRAC-10559 | Test Summary: Edit an analysis report"
 	@priority = 5
 	test CanEditAnalysisReport {
+		property portal.upstream = "vini";
+
 		var attributeName1 = "price";
 		var attributeName2 = "like";
 
