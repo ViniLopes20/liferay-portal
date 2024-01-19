@@ -666,6 +666,8 @@ definition {
 		task ("Switch the property in AC and go to event analysis") {
 			ACUtils.launchAC();
 
+			SetWindowSize.maximizeWindow();
+
 			ACProperties.switchProperty(propertyName = ${assignedPropertyName});
 
 			ACNavigation.goToEventAnalysis();
@@ -844,6 +846,8 @@ definition {
 
 		task ("Switch the property in AC and go to event analysis") {
 			ACUtils.launchAC();
+
+			SetWindowSize.maximizeWindow();
 
 			ACProperties.switchProperty(propertyName = ${assignedPropertyName});
 

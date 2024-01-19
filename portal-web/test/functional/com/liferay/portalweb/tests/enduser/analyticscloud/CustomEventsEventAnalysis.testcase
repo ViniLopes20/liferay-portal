@@ -415,7 +415,7 @@ definition {
 		task ("Switch the property in AC and go to event analysis") {
 			ACUtils.launchAC();
 
-			var dataSourceName = StringUtil.extractFirst(${assignedPropertyName}, " ");
+			SetWindowSize.maximizeWindow();
 
 			ACProperties.switchProperty(propertyName = ${assignedPropertyName});
 
@@ -423,6 +423,8 @@ definition {
 		}
 
 		task ("Add the custom event, create an analysis and add a brekdown") {
+			var dataSourceName = StringUtil.extractFirst(${assignedPropertyName}, " ");
+
 			var analysisInformation = StringUtil.lowerCase("AC Page - Site Name - ${dataSourceName}");
 
 			ACEventAnalysis.addEvent(customEventName = ${customEventName});
