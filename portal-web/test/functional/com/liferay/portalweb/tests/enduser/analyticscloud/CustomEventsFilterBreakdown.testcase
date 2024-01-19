@@ -639,6 +639,7 @@ definition {
 	@description = "Feature ID: LRAC-9481 | Automation ID: LRAC-10696 | Test Summary: Event Analysis breakdown filter provide auto complete suggestions for all conditions"
 	@priority = 5
 	test CheckAutocompleteSuggestionsForAllConditions {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var attributeName = "city";
@@ -827,6 +828,7 @@ definition {
 	@description = "Feature ID: LRAC-7868 | Automation ID: LRAC-10280 | Test Summary: Event Analysis creation with Filtered Attribute (Date) and (Is/Is before/Is after/Is between) condition"
 	@priority = 3
 	test CreateEventAnalysisWithDateAttributeFilterAllCondition {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var attributeName = "pageTitle";

@@ -394,6 +394,9 @@ definition {
 	@description = "Bug: LRAC-11746 | Automation ID: LRAC-12356 | Test Summary: The analysis result should not appear if any of the attribute conditions are not contained within the result"
 	@priority = 4
 	test CheckResultNotAppearIfAnyAttributeConditionsNotContainedValue {
+		property portal.upstream = "vini";
+		property test.run.type = "single";
+
 		var firstFilterName = "pageTitle";
 		var secondFilterName = "url";
 		var firstFilterCondition = "contains";
