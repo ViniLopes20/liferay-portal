@@ -639,6 +639,7 @@ definition {
 	@description = "Feature ID: LRAC-9481 | Automation ID: LRAC-10696 | Test Summary: Event Analysis breakdown filter provide auto complete suggestions for all conditions"
 	@priority = 5
 	test CheckAutocompleteSuggestionsForAllConditions {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var attributeName = "city";
