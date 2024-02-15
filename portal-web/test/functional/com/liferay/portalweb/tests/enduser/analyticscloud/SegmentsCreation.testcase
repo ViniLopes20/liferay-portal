@@ -874,6 +874,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-7962 | Test Summary: Create a segment that contains anonymous individuals"
 	@priority = 5
 	test CanCreateSegmentWithAnonymousIndividuals {
+		property portal.upstream = "vini";
+
 		var usernameList = "ac,liferay,dxp";
 		var emailList = "ac@liferay.com,liferay@liferay.com,dxp@liferay.com";
 		var nameList = "ac ac,liferay liferay,dxp dxp";
@@ -1086,6 +1088,7 @@ definition {
 	@description = "Create a static segment with individual"
 	@priority = 5
 	test CanCreateStaticSegmentWithIndividuals {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		task ("Sign in as new user") {
