@@ -133,6 +133,8 @@ definition {
 	@description = "Feature ID: LRAC-6280 | Automation ID: LRAC-10557 | Test Summary: Change data type with event already in use"
 	@priority = 4
 	test CanChangeAttributeTypeInUseWithoutAffectingExistingAnalysisReports {
+		property portal.upstream = "vini";
+
 		var attributeNameList = "temp,category,duration";
 		var attributeNameChangeList = "temp,duration";
 		var filterName = "temp";
@@ -603,6 +605,8 @@ definition {
 	@description = "Feature ID: LRAC-6280 | Automation ID: LRAC-10561 | Test Summary: Edit report name to the same name as existing report"
 	@priority = 4
 	test CannotSaveAnalysisReportWithExistingName {
+		property portal.upstream = "vini";
+
 		var defaultEventName = "webContentViewed";
 		var eventAnalysisNameList = "Save Analysis 1,Save Analysis 2";
 
