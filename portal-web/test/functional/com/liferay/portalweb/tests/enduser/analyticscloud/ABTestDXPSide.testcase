@@ -92,6 +92,8 @@ definition {
 	@description = "Bug: LRAC-7750 | Automation ID: LRAC-11513 | Test Summary: It is possible to delete an AB test"
 	@priority = 5
 	test CanDeleteABTest {
+		property portal.upstream = "vini";
+
 		task ("Start an AB test") {
 			ABTest.createABTest(
 				goal = "Bounce Rate",

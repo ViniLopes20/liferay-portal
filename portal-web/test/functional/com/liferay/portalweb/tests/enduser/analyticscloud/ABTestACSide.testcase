@@ -150,6 +150,8 @@ definition {
 	@description = "Story: LRAC-14101 | Automation ID: LRAC-14542 | Test Summary: Terminate button in AC is redirecting to DXP"
 	@priority = 3
 	test CheckTerminateButtonRedirectingToDXP {
+		property portal.upstream = "vini";
+
 		task ("Click on Review and Run test") {
 			ABTest.runTest();
 		}
