@@ -234,6 +234,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8138 | Test Summary: Delete a static segment"
 	@priority = 5
 	test CanDeleteStaticSegment {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");

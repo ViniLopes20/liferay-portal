@@ -201,6 +201,8 @@ definition {
 	@description = "Feature ID: LRAC-14836 | Automation ID: LRAC-15060 | Test Summary: The dropdown is updated when a segment is deleted"
 	@priority = 4
 	test DeleteSegmentDropdownUpdated {
+		property portal.upstream = "vini";
+
 		task ("Create a site and a blog and add to a page") {
 			ACUtils.addSiteAndPage();
 

@@ -55,6 +55,7 @@ definition {
 	@description = "Feature ID: LRAC-10999 | Automation ID: LRAC-11308 | Test Summary: Delete browser storage changes userid and anonymous user appears"
 	@priority = 3
 	test CheckDeleteBrowserStorageChangesUserId {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Add a new user") {

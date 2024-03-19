@@ -194,6 +194,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8991 | Test Summary: Order an Individual's Associated Segments List"
 	@priority = 3
 	test OrderIndividualsAssociatedSegments {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		task ("View the page as different users") {

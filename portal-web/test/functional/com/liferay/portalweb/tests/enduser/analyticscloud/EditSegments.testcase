@@ -404,6 +404,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8589 | Test Summary: Editor shows static segment label"
 	@priority = 3
 	test EditorShowsStaticSegmentLabel {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var propertyName = ACDXPSettings.connectDXPtoAnalyticsCloud(siteName = "Site Name");
@@ -947,6 +948,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8596 | Test Summary: Undo one static member from being added"
 	@priority = 3
 	test UndoOneStaticMemberFromBeingAdded {
+		property portal.upstream = "vini";
+
 		var users = "ac,ac2,ac3";
 		var emailList = "ac@liferay.com,ac2@liferay.com,ac3@liferay.com";
 		var nameList = "ac ac,ac2 ac2,ac3 ac3";
