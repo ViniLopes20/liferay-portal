@@ -421,6 +421,8 @@ definition {
 			userLoginFullName = "ac ac");
 
 		ACUtils.navigateToSitePage(
+			actionType = "View WC",
+			documentTitleList = "1,2,3,4",
 			pageName = "AC Page",
 			siteName = "Site Name");
 
@@ -963,6 +965,8 @@ definition {
 
 		task ("Login new user and view page") {
 			ACUtils.navigateToSitePageWithUser(
+				actionType = "View WC",
+				documentTitleList = "1,2,3,4",
 				emailList = ${emailList},
 				pageName = "AC Page",
 				siteName = "Site Name");
