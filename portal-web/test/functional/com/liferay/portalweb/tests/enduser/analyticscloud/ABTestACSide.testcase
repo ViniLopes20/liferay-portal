@@ -66,6 +66,8 @@ definition {
 	@description = "Story: LRAC-14220 | Automation ID: LRAC-14444 | Test Summary: Draft AB test delete button redirects to DXP"
 	@priority = 3
 	test ABTestDraftDeleteButtonRedirectsToDXP {
+		property portal.upstream = "vini";
+
 		task ("Go to AC > Tests > Open your test") {
 			ACUtils.launchAC();
 
@@ -112,6 +114,8 @@ definition {
 	@description = "Story: LRAC-14220 | Automation ID: LRAC-14445 | Test Summary: Draft AB test Review button redirects to DXP"
 	@priority = 3
 	test ABTestDraftReviewButtonRedirectsToDXP {
+		property portal.upstream = "vini";
+
 		task ("Go to AC > Tests > Open your test") {
 			ACUtils.launchAC();
 
