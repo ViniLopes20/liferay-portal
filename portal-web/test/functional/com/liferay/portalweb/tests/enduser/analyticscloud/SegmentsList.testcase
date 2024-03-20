@@ -46,6 +46,7 @@ definition {
 	@description = "Search for specific segment"
 	@priority = 5
 	test CanSearchForSegment {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		task ("Switch the property in AC") {
