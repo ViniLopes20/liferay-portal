@@ -54,6 +54,8 @@ definition {
 	@description = "Story: LRAC-10867 | Automation ID: LRAC-12909 | Test Summary: Check that all attributes for Orders are marked as required"
 	@priority = 5
 	test AllOrderAttributesRequired {
+		property portal.upstream = "vini";
+
 		task ("Click to configure Orders attributes") {
 			ACDXPSettings.clickToSelectAttributes(attributeCategory = "Order");
 		}
@@ -353,6 +355,8 @@ definition {
 	@description = "Story: LRAC-10860 | Automation ID: LRAC-12781 | Test Summary: Check that it is possible to search the Attribute for People list"
 	@priority = 4
 	test CanSearchAttributeForPeopleList {
+		property portal.upstream = "vini";
+
 		var foundPeopleAttribute = "birthday";
 		var notFoundPeopleAttribute = "createDate,firstName";
 

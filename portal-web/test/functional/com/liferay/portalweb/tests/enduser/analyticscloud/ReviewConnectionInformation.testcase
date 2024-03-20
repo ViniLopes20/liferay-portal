@@ -108,6 +108,8 @@ definition {
 	@description = "Story: LRAC-11044 | Automation ID: LRAC-12678 | Test Summary: Check that you can modify selected attributes in the attribute review sidebar"
 	@priority = 4
 	test CanModifySelectedAttributesInAttributeReviewSidebar {
+		property portal.upstream = "vini";
+
 		task ("Go to the attributes page in the sidebar") {
 			ACDXPSettings.navToSyncedAttributes();
 		}
