@@ -81,6 +81,8 @@ definition {
 		task ("Click on the new tab open and delete the created AB test") {
 			SelectWindow(value1 = "name=undefined");
 
+			WaitForElementPresent(locator1 = "Modal#MODAL_CONTENT");
+
 			AssertTextEquals.assertPartialText(
 				locator1 = "Modal#MODAL_CONTENT",
 				value1 = "Are you sure you want to delete this? It will be deleted immediately. You will lose all data related to it. You will not be able to undo this operation.");
