@@ -728,6 +728,7 @@ definition {
 	@description = "Web content visitor behavior card shows expected amount of views"
 	@priority = 5
 	test VisitorBehaviorCardShowsExpectedAmountOfViewsInWC {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		task ("Connect DXP to Analytics Cloud and get the property name") {

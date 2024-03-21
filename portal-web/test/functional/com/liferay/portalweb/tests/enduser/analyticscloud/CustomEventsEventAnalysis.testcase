@@ -692,6 +692,8 @@ definition {
 	@description = "Feature ID: LRAC-4266 | Automation ID: LRAC-10292 | Test Summary: Creating Events from All tab, default tab and custom tab and Event Attributes"
 	@priority = 5
 	test CreateEventAnalysisFromAllAndDefaultAndCustomTab {
+		property portal.upstream = "vini";
+
 		var attributeName = "pageTitle";
 		var defaultEventName = "pageViewed";
 		var dataSource = StringUtil.extractFirst(${assignedPropertyName}, " ");
