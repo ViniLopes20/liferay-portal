@@ -5,7 +5,7 @@ definition {
 	property analytics.cloud.upstream = "true";
 	property custom.properties = "jsonws.web.service.paths.excludes=";
 	property portal.release = "false";
-	property portal.upstream = "true";
+	property portal.upstream = "vini";
 	property property.group = "analytics.cloud.profile";
 	property testray.main.component.name = "Analytics Cloud";
 
@@ -55,13 +55,8 @@ definition {
 	}
 
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8969 | Test Summary: Check documentDownloaded triggers when a file is downloaded in a DXP site and check its properties (see reference document in comments)"
-	@ignore = "true"
 	@priority = 5
 	test CheckDocumentDownloadedInSiteAndCheckProperties {
-
-		// AC Bug: Unable to search using special characters
-		// AC Bug ticket: LRAC-13715
-
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {
@@ -152,13 +147,8 @@ definition {
 	}
 
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8944 | Test Summary: Check documentPreviewed is triggered when viewing the document on a page and has the right parameters"
-	@ignore = "true"
 	@priority = 3
 	test CheckDocumentPreviewedWhenViewOnPageAndCheckParameters {
-
-		// AC Bug: Unable to search using special characters
-		// AC Bug ticket: LRAC-13715
-
 		property proxy.server.enabled = "true";
 
 		task ("Get the Property ID in AC") {

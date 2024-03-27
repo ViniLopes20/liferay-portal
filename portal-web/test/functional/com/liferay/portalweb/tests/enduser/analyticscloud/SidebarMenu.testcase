@@ -88,12 +88,9 @@ definition {
 	}
 
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8973 | Test Summary: Assert the Property Menu after editing a Property"
-	@ignore = "true"
 	@priority = 3
 	test AssertPropertyMenuAfterEditProperty {
-
-		// AC Bug: Unable to search using special characters
-		// AC Bug ticket: LRAC-13715
+		property portal.upstream = "vini";
 
 		task ("Switch to new property in AC") {
 			ACUtils.launchAC();
