@@ -456,6 +456,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8587 | Test Summary: Paginate list of members to be added to the segment"
 	@priority = 3
 	test PaginateListOfMembersToBeAddedToTheSegment {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		var emailList = "ac1@liferay.com,ac2@liferay.com,ac3@liferay.com,ac4@liferay.com,ac5@liferay.com,ac6@liferay.com,ac7@liferay.com";
