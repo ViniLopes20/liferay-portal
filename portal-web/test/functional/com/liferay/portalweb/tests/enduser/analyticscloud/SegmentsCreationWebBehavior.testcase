@@ -95,6 +95,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9221 | Test Summary: Create a Web Behavior criteria at least/at most times"
 	@priority = 4
 	test CanCreateWebBehaviorSegmentCriteriaLeastMostTimes {
+		property portal.upstream = "vini";
 		property test.run.type = "single";
 
 		ACUtils.createWCAndAddToPage();
