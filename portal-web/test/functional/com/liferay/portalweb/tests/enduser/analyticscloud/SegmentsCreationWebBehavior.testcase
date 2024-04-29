@@ -38,6 +38,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-9220 | Test Summary: Create a segment with behavior of commenting on a blog"
 	@priority = 4
 	test CanCreateWebBehaviorSegmentCommentingBlog {
+		property portal.upstream = "vini";
+
 		ACUtils.createBlogsAndAddToPage();
 
 		JSONUser.addUser(
