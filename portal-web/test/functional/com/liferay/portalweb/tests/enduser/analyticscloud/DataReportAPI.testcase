@@ -353,6 +353,8 @@ definition {
 	@description = "Feature ID: LRAC-12919 | Automation ID: LRAC-13491 | Test Summary: Check that you can access the data of all individuals in the workspace"
 	@priority = 4
 	test RequestToAccessDataForAllIndividuals {
+		property portal.upstream = "vini";
+
 		var type = "individuals";
 		var userNameList = "brazil,spain";
 		var emailList = "brazil@liferay.com,spain@liferay.com";

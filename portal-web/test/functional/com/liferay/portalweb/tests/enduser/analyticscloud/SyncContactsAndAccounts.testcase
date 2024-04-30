@@ -327,6 +327,7 @@ definition {
 	@priority = 5
 	test CanSyncAllContacts {
 		property portal.release = "true";
+		property portal.upstream = "vini";
 
 		for (var userName : list "dxp,lxc") {
 			task ("Add user, group and assign user to group") {
@@ -585,6 +586,7 @@ definition {
 	@priority = 5
 	test CanSyncAllContactsByOrganizations {
 		property portal.release = "true";
+		property portal.upstream = "vini";
 
 		task ("Create a new user, a new organization and assign the organization for the created user") {
 			JSONUser.addUser(
