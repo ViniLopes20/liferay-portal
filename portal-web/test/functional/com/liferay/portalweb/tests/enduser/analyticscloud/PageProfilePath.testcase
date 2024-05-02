@@ -290,6 +290,8 @@ definition {
 	@description = "Feature ID: LRAC-14836 | Automation ID: LRAC-15062 | Test Summary: Remove segments from the filter"
 	@priority = 5
 	test RemoveSegmentFromFilter {
+		property portal.upstream = "vini";
+
 		task ("Create a site and a blog and add to a page") {
 			ACUtils.addSiteAndPage();
 
