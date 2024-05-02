@@ -66,6 +66,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8691 | Test Summary: Check formSubmitted triggers after submitting a form and check its properties (see reference document in comments)"
 	@priority = 5
 	test CheckFormSubmittedAfterSubmittingForm {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 
 		task ("Get formId of form") {
