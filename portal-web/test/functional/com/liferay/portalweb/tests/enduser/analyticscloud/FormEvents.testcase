@@ -74,8 +74,18 @@ definition {
 				groupName = "Site Name");
 		}
 
+		task ("Get published form URL") {
+			FormsAdminNavigator.openFormsAdmin(siteURLKey = "site-name");
+
+			FormsAdminNavigator.gotoEditFormByName(formName = "Created Form Name");
+
+			FormsAdminNavigator.gotoPublishCopyURLLink();
+
+			var publishedFormURL = Form.getPublishedFormPublicURL();
+		}
+
 		task ("Sign out") {
-			UserBar.signOut();
+			User.logoutPG();
 		}
 
 		task ("Get the Property ID in AC") {
@@ -94,28 +104,26 @@ definition {
 			ACUtils.launchDXP(userEmailAddress = "userea@liferay.com");
 		}
 
+		task ("Navigate to the published form") {
+			Navigator.openSpecificURL(url = ${publishedFormURL});
+		}
+
+		task ("Navigate to the published form page and submit the form") {
+			FormPortlet.waitFormRenderer(text = "Submit");
+
+			FormFields.editText(
+				fieldName = "Text",
+				fieldValue = "First Record");
+
+			FormPortlet.submitLocalizedSuccessfully(buttonName = "Submit");
+		}
+
 		task ("Start Har recording") {
 			ProxyUtil.startHarRecording("formSubmitted");
 		}
 
-		task ("Navigate to the site page and submit a record in form") {
-			ACUtils.navigateToSitePage(
-				actionType = "Submit Form",
-				pageName = "AC Page",
-				siteName = "Site Name",
-				submitText = "First Record");
-		}
-
 		task ("Wait for sending requests") {
 			ACUtils.waitForSendingRequest();
-		}
-
-		task ("View the title of formSubmitted event") {
-			ACUtils.assertEventPropertyValue(
-				applicationId = "Form",
-				eventId = "formSubmitted",
-				property = "title",
-				value = "Created Form Name");
 		}
 
 		task ("View the formId of formSubmitted event") {
@@ -124,6 +132,14 @@ definition {
 				eventId = "formSubmitted",
 				property = "formId",
 				value = ${formId});
+		}
+
+		task ("View the title of formSubmitted event") {
+			ACUtils.assertEventPropertyValue(
+				applicationId = "Form",
+				eventId = "formSubmitted",
+				property = "title",
+				value = "Created Form Name");
 		}
 
 		task ("View the request common properties value") {
