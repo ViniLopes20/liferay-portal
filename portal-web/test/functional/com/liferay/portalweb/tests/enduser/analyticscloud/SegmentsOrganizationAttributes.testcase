@@ -342,6 +342,8 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8551 | Test Summary: Add segment using an organization property 'organization'"
 	@priority = 4
 	test CanCreateSegmentUsingOrganizationPropertyOrganization {
+		property portal.upstream = "vini";
+
 		task ("Add user") {
 			JSONUser.addUser(
 				userEmailAddress = "userea@liferay.com",
