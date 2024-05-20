@@ -54,6 +54,8 @@ definition {
 	@description = "Automation ID: LRAC-9052 | Test Summary: Admin can be selected in the user list"
 	@priority = 3
 	test AdminCanBeSelected {
+		property portal.upstream = "vini";
+
 		task ("Go to settings and go to user management") {
 			ACNavigation.goToSettings();
 

@@ -133,6 +133,8 @@ definition {
 	@description = "Automation ID: LRAC-9071 | Test Summary: Owner can invite users"
 	@priority = 5
 	test OwnerCanInviteUsers {
+		property portal.upstream = "vini";
+
 		task ("sign out and login as member") {
 			ACWorkspace.signOut();
 

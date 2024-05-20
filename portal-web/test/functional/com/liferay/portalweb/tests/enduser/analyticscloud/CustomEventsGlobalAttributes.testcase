@@ -169,6 +169,8 @@ definition {
 	@description = "Feature ID: LRAC-4265 | Automation ID: LRAC-10215 | Test Summary: Edit global attribute description"
 	@priority = 5
 	test EditGlobalAttributeDescription {
+		property portal.upstream = "vini";
+
 		var globalAttributeName = "pageTitle";
 
 		task ("Fill fields and create custom event") {
