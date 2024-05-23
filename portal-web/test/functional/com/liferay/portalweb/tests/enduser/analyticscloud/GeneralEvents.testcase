@@ -44,6 +44,7 @@ definition {
 	@description = "Feature ID: Legacy | Automation ID: LRAC-8152 | Test Summary: Check all applicable events trigger for unknown users (Page, Blog, Form, Web Content, Documents & Media, Social)"
 	@priority = 5
 	test CheckGeneralEventsForUnknownUser {
+		property portal.upstream = "vini";
 		property proxy.server.enabled = "true";
 		property test.run.type = "single";
 
