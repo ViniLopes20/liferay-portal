@@ -492,8 +492,8 @@ definition {
 			ACUtils.assertEventPropertyValue(
 				applicationId = "Form",
 				eventId = "formSubmitted",
-				property = "formId",
-				value = ${formId});
+				property = "title",
+				value = "Created Form Name");
 		}
 
 		task ("Stop the recording") {
