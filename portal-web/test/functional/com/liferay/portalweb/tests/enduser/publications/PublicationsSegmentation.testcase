@@ -221,6 +221,8 @@ definition {
 	@description = "Segment should support locales in review changes."
 	@priority = 3
 	test CanReviewChangeForSegmentWithLocalization {
+		property portal.upstream = "vini";
+
 		task ("Create new Publication and new site") {
 			JSONPublications.addPublication(publicationName = "Publication Name");
 
